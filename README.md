@@ -1,2 +1,2 @@
 # Pylette
-A palette creater written in Python
+A palette creater written in Python.

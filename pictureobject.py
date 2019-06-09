@@ -30,3 +30,6 @@ class Pictureobject():
         # durch liste loopen
         # unmutable_list[1] an mutable_list anhängen
         pass
+
+    def get_colors(self):
+        return self.mutable_list

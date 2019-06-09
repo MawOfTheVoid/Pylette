@@ -1,3 +1,6 @@
+from PIL import Image
+
+
 class Pictureobject():
     """Get the colordata from a function and
     provides an Interface to access it"""

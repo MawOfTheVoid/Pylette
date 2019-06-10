@@ -7,7 +7,17 @@ class Filemanager():
         self.text_objects = []
         self.color_dialog_object = []
 
-    def add_new_file(self):
+    def add_file_from_filedialog(self):
+        # open Filedialog
+        # extract filepath
+        # give filepath to create_new_object
+        pass
+
+    def add_file_from_drag(self):
+        # dont know yet
+        pass
+
+    def create_new_object(self):
         # check the fileending
         # create an object accordingly
         # add it to the appropiate list

@@ -12,11 +12,14 @@ class Ui_MainWindow(object):
     """Is responsible for the look of the Window and the function calls when
     a Button is pressed"""
 
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow, interface):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(322, 164)
         MainWindow.setAutoFillBackground(False)
         self.centralwidget = QWidget(MainWindow)
+        self.interface = interface
+
+        # initialising the buttons
 
         self.filedialog = QPushButton(self.centralwidget)
         self.filedialog.setGeometry(QRect(10, 10, 141, 121))
@@ -25,6 +28,10 @@ class Ui_MainWindow(object):
         self.export_as_png = QPushButton(self.centralwidget)
         self.export_as_png.setGeometry(QRect(150, 10, 161, 121))
         self.export_as_png.setDefault(False)
+
+        # initialising the actions
+        self.filedialog.clicked.connect(self.interface.filedialog_buttonpress)
+        self.export_as_png.clicked.connect(self.interface.export_press)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)

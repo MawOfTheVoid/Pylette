@@ -1,3 +1,6 @@
+from PyQt5.QtWidgets import QFileDialog
+
+
 class Filemanager():
     """Provides an interface for dataobjects and creates them
     on demand"""
@@ -11,7 +14,8 @@ class Filemanager():
         # open Filedialog
         # extract filepath
         # give filepath to create_new_object
-        pass
+        fname = QFileDialog.getOpenFileName()
+        print(fname)
 
     def add_file_from_drag(self):
         # dont know yet

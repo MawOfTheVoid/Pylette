@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QFileDialog
+import pictureobject
 
 
 class Filemanager():
@@ -6,7 +7,7 @@ class Filemanager():
     on demand"""
 
     def __init__(self):
-        self.pictureobjects = []
+        self.picture_objects = []
         self.text_objects = []
         self.color_dialog_object = []
 
@@ -14,18 +15,28 @@ class Filemanager():
         # open Filedialog
         # extract filepath
         # give filepath to create_new_object
-        fname = QFileDialog.getOpenFileName()
-        print(fname)
+
+        file_name = QFileDialog.getOpenFileName()
+        if file_name[0] == "":
+            print("No file opened")
+            return
+        print(file_name[0])
+        self.create_new_object(file_name[0])
 
     def add_file_from_drag(self):
         # dont know yet
         pass
 
-    def create_new_object(self):
+    def create_new_object(self, filepath):
         # check the fileending
         # create an object accordingly
         # add it to the appropiate list
         # update the gui
+
+        # TODO add more filextensions
+        if (filepath[-4:] == ".png"):
+            picture = pictureobject.Picture_object(filepath)
+            self.picture_objects.append(picture)
         pass
 
     def delete_file(self):

@@ -1,22 +1,22 @@
 from PIL import Image
 
 
-class Pictureobject():
+class Picture_object():
     """Get the colordata from a function and
     provides an Interface to access it"""
 
     # braucht den filename von mimedata und
-    def __init__(self, eventdata):
+    def __init__(self, filepath):
         self.is_changed = False
-        self.filename = self.get_filename(eventdata)
-        self.unmutable_list = self.get_list_from_file(eventdata)
+        self.filename = self.get_filename_from_path(filepath)
+        self.unmutable_list = self.get_list_from_file(filepath)
         self.mutable_list = self.reset_list()
 
-    def get_filename(filepath):
+    def get_filename_from_path(self, filepath):
         filepath = filepath.replace("\\", "/").split("/")
         return filepath[-1]
 
-    def get_list_from_file(filepath):
+    def get_list_from_file(self, filepath):
         # öffnet datei mit pillow
         # checkt ob die länge der zweiten unterliste4 lang ist
         # wenn nicht dann 255 anhängen

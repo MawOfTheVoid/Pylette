@@ -6,21 +6,21 @@
 
 from PyQt5.QtCore import QMetaObject, QRect, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QPushButton
+import filemanager
 
 
 class Ui_MainWindow(object):
     """Is responsible for the look of the Window and the function calls when
     a Button is pressed"""
 
-    def setupUi(self, MainWindow, interface):
+    def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(322, 164)
         MainWindow.setAutoFillBackground(False)
         self.centralwidget = QWidget(MainWindow)
-        self.interface = interface
+        self.filehandler = filemanager.Filemanager()
 
         # initialising the buttons
-
         self.filedialog = QPushButton(self.centralwidget)
         self.filedialog.setGeometry(QRect(10, 10, 141, 121))
         self.filedialog.setAcceptDrops(True)
@@ -30,8 +30,8 @@ class Ui_MainWindow(object):
         self.export_as_png.setDefault(False)
 
         # initialising the actions
-        self.filedialog.clicked.connect(self.interface.filedialog_buttonpress)
-        self.export_as_png.clicked.connect(self.interface.export_press)
+        self.filedialog.clicked.connect(self.filedialog_buttonpress)
+        self.export_as_png.clicked.connect(self.export_press)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)
@@ -42,3 +42,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.filedialog.setText(_translate("MainWindow", "Filedialog"))
         self.export_as_png.setText(_translate("MainWindow", "Export as png"))
+
+    def filedialog_buttonpress(self):
+        self.filehandler.add_file_from_filedialog()
+
+    def export_press(self):
+        print("Hey")

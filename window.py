@@ -4,7 +4,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtCore import QMetaObject, QRect, QCoreApplication
+from PyQt5.QtWidgets import QWidget, QPushButton
 
 
 class Ui_MainWindow(object):
@@ -15,22 +16,22 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(322, 164)
         MainWindow.setAutoFillBackground(False)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget = QWidget(MainWindow)
 
-        self.filedialog = QtWidgets.QPushButton(self.centralwidget)
-        self.filedialog.setGeometry(QtCore.QRect(10, 10, 141, 121))
+        self.filedialog = QPushButton(self.centralwidget)
+        self.filedialog.setGeometry(QRect(10, 10, 141, 121))
         self.filedialog.setAcceptDrops(True)
 
-        self.export_as_png = QtWidgets.QPushButton(self.centralwidget)
-        self.export_as_png.setGeometry(QtCore.QRect(150, 10, 161, 121))
+        self.export_as_png = QPushButton(self.centralwidget)
+        self.export_as_png.setGeometry(QRect(150, 10, 161, 121))
         self.export_as_png.setDefault(False)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
+        _translate = QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.filedialog.setText(_translate("MainWindow", "Filedialog"))
         self.export_as_png.setText(_translate("MainWindow", "Export as png"))

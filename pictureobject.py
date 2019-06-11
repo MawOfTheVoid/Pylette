@@ -19,13 +19,6 @@ class Picture_object():
         return filepath[-1]
 
     def get_list_from_file(self, filepath):
-        # öffnet datei mit pillow  	✓
-        # checkt ob die länge der zweiten unterliste4 lang ist
-        # wenn nicht dann 255 anhängen
-        # in QColors umwandeln
-        # liste in tulpe umwandeln
-        # liste zurückgeben
-
         gc.collect()
         img = Image.open(filepath)
         colorlist = img.getcolors(maxcolors=3840 * 2160)

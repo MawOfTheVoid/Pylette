@@ -43,6 +43,9 @@ class Picture_object():
                 qcolorlist.append(
                     (count_color[0], QColor.fromRgb(r, g, b, alpha=a))
                 )
+        qcolorlist = tuple(qcolorlist)
+        del colorlist
+        gc.collect()
         return qcolorlist
 
     def reset_list(self):

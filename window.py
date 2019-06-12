@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 #
 # Created by: PyQt5 UI code generator 5.12.2
-#
-# WARNING! All changes made in this file will be lost!
 
 from PyQt5.QtCore import QMetaObject, QRect, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QPushButton
@@ -10,8 +8,8 @@ import filemanager
 
 
 class Ui_MainWindow(object):
-    """Is responsible for the look of the Window and the function calls when
-    a Button is pressed"""
+    """Is responsible for the look of the mainwindow and the function calls
+    when a Button is pressed"""
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -29,7 +27,7 @@ class Ui_MainWindow(object):
         self.export_as_png.setGeometry(QRect(150, 10, 161, 121))
         self.export_as_png.setDefault(False)
 
-        # initialising the actions
+        # binding the buttons
         self.filedialog.clicked.connect(self.filedialog_buttonpress)
         self.export_as_png.clicked.connect(self.export_press)
 

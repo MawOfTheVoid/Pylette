@@ -4,10 +4,8 @@ import gc
 
 
 class Picture_object():
-    """Get the colordata from a function and
-    provides an Interface to access it"""
+    """Gives an interface to access the colors of a picture."""
 
-    # braucht den filename von mimedata und
     def __init__(self, filepath):
         self.is_changed = False
         self.filename = self.get_filename_from_path(filepath)
@@ -21,9 +19,9 @@ class Picture_object():
     def get_list_from_file(self, filepath):
         gc.collect()
         img = Image.open(filepath)
-        colorlist = img.getcolors(maxcolors=3840 * 2160)
+        colorlist = img.getcolors(maxcolors=1000000)
         qcolorlist = []
-        """TODO Gifs do not Work!!!"""
+        """TODO Gifs do not work!!!"""
         # picture has no alpha channel
         if len(colorlist[0][1]) == 3:
             for count_color in colorlist:
@@ -36,6 +34,7 @@ class Picture_object():
                 qcolorlist.append(
                     (count_color[0], QColor.fromRgb(r, g, b, alpha=a))
                 )
+        print("done")
         qcolorlist = tuple(qcolorlist)
         del colorlist
         gc.collect()
@@ -43,8 +42,10 @@ class Picture_object():
 
     def reset_list(self):
         # mutable_list = []
-        # durch liste loopen
-        # unmutable_list[1] an mutable_list anhängen
+        # get the information from the configuration class
+        # put it through the appropriate function which takes the list as
+        # input and outputs a new list
+        # mutable_list = said function
         pass
 
     def get_colors(self):

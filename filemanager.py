@@ -12,10 +12,6 @@ class Filemanager():
         self.color_dialog_object = []
 
     def add_file_from_filedialog(self):
-        # open Filedialog
-        # extract filepath
-        # give filepath to create_new_object
-
         file_name = QFileDialog.getOpenFileName()
         if file_name[0] == "":
             print("No file opened")
@@ -33,7 +29,6 @@ class Filemanager():
         # add it to the appropiate list
         # update the gui
 
-        # TODO add more filextensions
         if self.is_picture(filepath):
             picture = pictureobject.Picture_object(filepath)
             print(picture.filename)
@@ -48,7 +43,7 @@ class Filemanager():
 
     def get_all_objects(self):
         # open new list
-        # add every list to it
+        # add every object to it
         # return
         pass
 
@@ -56,17 +51,17 @@ class Filemanager():
         # open new list
         # call get_colors on every element
         # add the new colors to the list
-        # return
+        # return the list
         pass
 
     def is_picture(self, filepath):
         if (
-            filepath[-4:] == ".png" or filepath[-4:] == ".gif" or
-            filepath[-4:] == ".bmp" or filepath[-4:] == ".eps" or
-            filepath[-4:] == ".dib" or filepath[-4:] == ".ico" or
-            filepath[-4:] == ".msp" or filepath[-4:] == ".pcx" or
-            filepath[-4:] == ".ppm" or filepath[-4:] == ".sgi" or
-            filepath[-4:] == ".tga" or filepath[-4:] == ".jpg"
+                filepath[-4:] == ".png" or filepath[-4:] == ".gif" or
+                filepath[-4:] == ".bmp" or filepath[-4:] == ".eps" or
+                filepath[-4:] == ".dib" or filepath[-4:] == ".ico" or
+                filepath[-4:] == ".msp" or filepath[-4:] == ".pcx" or
+                filepath[-4:] == ".ppm" or filepath[-4:] == ".sgi" or
+                filepath[-4:] == ".tga" or filepath[-4:] == ".jpg"
                 ):
             return True
         elif filepath[-5:] == ".jpeg" or filepath[-5:] == ".tiff":

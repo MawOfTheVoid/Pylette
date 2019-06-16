@@ -60,7 +60,7 @@ class Filemanager():
                 filepath[-4:] == ".bmp" or filepath[-4:] == ".eps" or
                 filepath[-4:] == ".dib" or filepath[-4:] == ".ico" or
                 filepath[-4:] == ".msp" or filepath[-4:] == ".pcx" or
-                filepath[-4:] == ".ppm" or filepath[-4:] == ".sgi" or
+                filepath[-4:] == ".ppm" or filepath[-4:] == ".tif" or
                 filepath[-4:] == ".tga" or filepath[-4:] == ".jpg"
                 ):
             return True

@@ -26,12 +26,8 @@ class Picture_object():
             colors = pic_functions.maxcolors(self.unmutable_list, maximal_colors)
 
         elif settings["threshold"][0] is True:
-            if settings["threshold"][1] == "percent":
                 percent = settings["threshold"][2]
                 colors = pic_functions.percent_threshold(self.unmutable_list, percent)
-            elif settings["threshold"][1] == "absolute":
-                number = settings["threshold"][2]
-                colors = pic_functions.absolute_threshold(self.unmutable_list, number)
         return colors
 
     def get_colors(self):

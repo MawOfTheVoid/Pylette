@@ -42,7 +42,3 @@ def maxcolors(unmutable_list, maximal_colors):
 
 def percent_threshold(unmutable_list, percent):
     print("percent")
-
-
-def absolute_threshold(unmutable_list, number):
-    print("absolute")

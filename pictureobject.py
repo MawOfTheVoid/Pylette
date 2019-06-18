@@ -6,7 +6,8 @@ import gc
 class Picture_object():
     """Gives an interface to access the colors of a picture."""
 
-    def __init__(self, filepath):
+    def __init__(self, filepath, conf):
+        self.conf = conf
         self.is_changed = False
         self.filename = self.get_filename_from_path(filepath)
         self.unmutable_list = self.get_list_from_file(filepath)

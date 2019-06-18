@@ -11,12 +11,12 @@ class Ui_MainWindow(object):
     """Is responsible for the look of the mainwindow and the function calls
     when a Button is pressed"""
 
-    def setupUi(self, MainWindow):
+    def setup(self, MainWindow, conf):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(322, 164)
         MainWindow.setAutoFillBackground(False)
         self.centralwidget = QWidget(MainWindow)
-        self.filehandler = filemanager.Filemanager()
+        self.filehandler = filemanager.Filemanager(conf)
 
         # initialising the buttons
         self.filedialog = QPushButton(self.centralwidget)

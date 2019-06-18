@@ -6,10 +6,11 @@ class Filemanager():
     """Provides an interface for dataobjects or creates them
     on demand"""
 
-    def __init__(self):
+    def __init__(self, conf):
         self.picture_objects = []
         self.text_objects = []
         self.color_dialog_object = []
+        self.conf = conf
 
     def add_file_from_filedialog(self):
         file_name = QFileDialog.getOpenFileName()
@@ -30,9 +31,10 @@ class Filemanager():
         # update the gui
 
         if self.is_picture(filepath):
-            picture = pictureobject.Picture_object(filepath)
+            picture = pictureobject.Picture_object(filepath, self.conf)
             print(picture.filename)
             self.picture_objects.append(picture)
+        # Add checks for special text files and gifs
         pass
 
     def delete_file(self):

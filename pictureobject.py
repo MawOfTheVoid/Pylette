@@ -17,7 +17,22 @@ class Picture_object():
         # put it through the appropriate function which takes the list as
         # input and outputs a new list
         # mutable_list = said function
-        pass
+        settings = self.conf.get_picture_import_settings()
+        if settings["reduce_colors"] is False:
+            colors = pic_functions.all_colors_to_palette(self.unmutable_list)
+
+        elif settings["maxcolors"][0] is True:
+            maximal_colors = settings["maxcolors"][1]
+            colors = pic_functions.maxcolors(self.unmutable_list, maximal_colors)
+
+        elif settings["threshold"][0] is True:
+            if settings["threshold"][1] == "percent":
+                percent = settings["threshold"][2]
+                colors = pic_functions.percent_threshold(self.unmutable_list, percent)
+            elif settings["threshold"][1] == "absolute":
+                number = settings["threshold"][2]
+                colors = pic_functions.absolute_threshold(self.unmutable_list, number)
+        return colors
 
     def get_colors(self):
         return self.mutable_list

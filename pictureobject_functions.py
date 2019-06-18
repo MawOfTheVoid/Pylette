@@ -30,3 +30,19 @@ def get_list_from_file(filepath):
     del colorlist
     gc.collect()
     return qcolorlist
+
+
+def all_colors_to_palette(unmutable_colorlist):
+    print("all")
+
+
+def maxcolors(unmutable_list, maximal_colors):
+    print("maxcolors")
+
+
+def percent_threshold(unmutable_list, percent):
+    print("percent")
+
+
+def absolute_threshold(unmutable_list, number):
+    print("absolute")

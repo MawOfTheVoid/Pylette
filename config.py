@@ -22,12 +22,7 @@ class ConfigManager():
         self.dict = self.get_dict_from_file()
 
     def get_dict_from_file(self):
-        # try opening the file
-        # create one if not there
-        # try dumping the file
-        # return the dict
-
-        # optional: checking the keys and values of the dict fro integrety
+        # optional: checking the keys and values of the dict for integrety
         if not os.path.isfile(self.adress):
             with open(self.adress, "w") as file:
                 json.dump(file, indent=1)

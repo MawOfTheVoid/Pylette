@@ -9,9 +9,10 @@ class Picture_object():
         self.is_changed = False
         self.filename = pic_functions.get_filename_from_path(filepath)
         self.pixels = pic_functions.get_pixelcount(filepath)
-        print(self.pixels)
         self.unmutable_list = pic_functions.get_list_from_file(filepath)
         self.mutable_list = self.reset_list()
+        for color in self.mutable_list:
+            print(color.getRgb())
 
     def reset_list(self):
         settings = self.conf.get_picture_import_settings()

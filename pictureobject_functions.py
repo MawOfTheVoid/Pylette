@@ -38,11 +38,10 @@ def get_pixelcount(filepath):
 
 
 def all_colors_to_palette(unmutable_colorlist):
-    # colors = []
-    # iterate through file
-    # append [1] to colors
-    # return colors
-    print("all")
+    colors = []
+    for count_color in unmutable_colorlist:
+        colors.append(count_color[1])
+    return colors
 
 
 def maxcolors(unmutable_list, maximal_colors):

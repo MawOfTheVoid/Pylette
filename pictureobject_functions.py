@@ -32,13 +32,34 @@ def get_list_from_file(filepath):
     return qcolorlist
 
 
+def get_pixelcount(filepath):
+    img = Image.open(filepath)
+    return img.width * img.height
+
+
 def all_colors_to_palette(unmutable_colorlist):
+    # colors = []
+    # iterate through file
+    # append [1] to colors
+    # return colors
     print("all")
 
 
 def maxcolors(unmutable_list, maximal_colors):
+    # colors = []
+    # sort by amount
+    # take the number of colors-1
+    # copy to colors
+    # return colors
     print("maxcolors")
 
 
 def percent_threshold(unmutable_list, percent):
+    # multiply size and hight of picture = a
+    # colors = tuple
+    # loop through colors
+    # pixelcount / a = cpercent
+    # if cpercent >= percent
+    # append colors[1] to some list
+    # return some list
     print("percent")

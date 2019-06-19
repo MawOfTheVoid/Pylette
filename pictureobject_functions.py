@@ -50,7 +50,12 @@ def maxcolors(unmutable_list, maximal_colors):
     # take the number of colors-1
     # copy to colors
     # return colors
-    print("maxcolors")
+    colors = []
+    unmutable_list = sorted(unmutable_list, key=lambda color: color[0])
+    temp = unmutable_list[0:maximal_colors]
+    for count_color in temp:
+        colors.append(count_color[1])
+    return colors
 
 
 def percent_threshold(unmutable_list, percent):

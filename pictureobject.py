@@ -25,7 +25,7 @@ class Picture_object():
 
         elif settings["threshold"][0] is True:
                 percent = settings["threshold"][2]
-                colors = pic_functions.percent_threshold(self.unmutable_list, percent)
+                colors = pic_functions.percent_threshold(self.unmutable_list, percent, self.pixels)
         return colors
 
     def get_colors(self):

@@ -45,11 +45,6 @@ def all_colors_to_palette(unmutable_colorlist):
 
 
 def maxcolors(unmutable_list, maximal_colors):
-    # colors = []
-    # sort by amount
-    # take the number of colors-1
-    # copy to colors
-    # return colors
     colors = []
     unmutable_list = sorted(unmutable_list, key=lambda color: color[0])
     temp = unmutable_list[0:maximal_colors]
@@ -58,12 +53,13 @@ def maxcolors(unmutable_list, maximal_colors):
     return colors
 
 
-def percent_threshold(unmutable_list, percent):
-    # multiply size and hight of picture = a
-    # colors = tuple
-    # loop through colors
-    # pixelcount / a = cpercent
-    # if cpercent >= percent
-    # append colors[1] to some list
-    # return some list
-    print("percent")
+def percent_threshold(unmutable_list, percent_boundry, pixelcount):
+    colors = []
+    unmutable_list = list(unmutable_list)
+    for count_color in unmutable_list:
+        amount = count_color[0]
+        percent = (amount / pixelcount) * 100
+        print(percent)
+        if percent >= percent_boundry:
+            colors.append(count_color[1])
+    return colors

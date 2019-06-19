@@ -11,6 +11,9 @@ def get_filename_from_path(filepath):
 
 
 def get_list_from_file(filepath):
+    # gets the the colors of the image (pixelcount (r, g, b))
+    # converts the tuple to a QColor and appends it to a new list
+    # which is in turn converted into a tuple and returned
     gc.collect()
     img = Image.open(filepath)
     # if you set it to lower than the amount of colors in a picture the
@@ -32,6 +35,8 @@ def get_list_from_file(filepath):
                 (count_color[0], QColor.fromRgb(r, g, b, alpha=a))
             )
     qcolorlist = tuple(qcolorlist)
+    # deleting isnt necessary but I want to free it before collection
+    # but I also havent locked at how del or the gc works so heyyyyy
     del colorlist
     gc.collect()
     return qcolorlist

@@ -14,11 +14,6 @@ class Picture_object():
         self.mutable_list = self.reset_list()
 
     def reset_list(self):
-        # mutable_list = []
-        # get the information from the configuration class
-        # put it through the appropriate function which takes the list as
-        # input and outputs a new list
-        # mutable_list = said function
         settings = self.conf.get_picture_import_settings()
         if settings["reduce_colors"] is False:
             colors = pic_functions.all_colors_to_palette(self.unmutable_list)

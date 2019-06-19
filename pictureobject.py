@@ -15,6 +15,8 @@ class Picture_object():
             print(color.getRgb())
 
     def reset_list(self):
+        # it takes the unmutable_list and calls
+        # the necessary functions depending on the configuration
         settings = self.conf.get_picture_import_settings()
         if settings["reduce_colors"] is False:
             colors = pic_functions.all_colors_to_palette(self.unmutable_list)
@@ -29,4 +31,5 @@ class Picture_object():
         return colors
 
     def get_colors(self):
+        # a getter for other classes
         return self.mutable_list

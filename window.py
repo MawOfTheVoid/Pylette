@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
         MainWindow.setAutoFillBackground(False)
         self.centralwidget = QWidget(MainWindow)
         self.filehandler = filemanager.Filemanager(conf)
+        self.conf = conf
 
         # initialising the buttons
         self.filedialog = QPushButton(self.centralwidget)
@@ -45,6 +46,13 @@ class Ui_MainWindow(object):
         self.filehandler.add_file_from_filedialog()
 
     def export_press(self):
+        # open a savefialog
+        # call settings
+        # check wether the end of string has a fileending that fits with the
+        # the fileending in the second element of the tuple
+        # if not append the file extension
+        # check wether export as a picture a known text type or an unknown type
+        # call appropiate function
         saveable_formats = """Png (*.png);;Jpg (*.jpg);;
         Bmp (*.bmp)"""
         filename = QFileDialog.getSaveFileName(

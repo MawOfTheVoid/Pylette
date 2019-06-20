@@ -21,7 +21,6 @@ def get_list_from_file(filepath):
     # if the amount is too high the performance takes a hit
     colorlist = img.convert("RGB").getcolors(maxcolors=1000000)
     qcolorlist = []
-    """TODO Gifs do not work!!!"""
     # picture has no alpha channel
     if len(colorlist[0][1]) == 3:
         for count_color in colorlist:

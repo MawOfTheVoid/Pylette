@@ -19,7 +19,7 @@ def get_list_from_file(filepath):
     # if you set it to lower than the amount of colors in a picture the
     # function returns none;
     # if the amount is too high the performance takes a hit
-    colorlist = img.getcolors(maxcolors=1000000)
+    colorlist = img.convert("RGB").getcolors(maxcolors=1000000)
     qcolorlist = []
     """TODO Gifs do not work!!!"""
     # picture has no alpha channel

@@ -1,8 +1,8 @@
 {
  "picture_import" : {
    "reduce_colors" : true,
-   "threshold" : [true, "percent", 10],
-   "maxcolors" : [false, 8]
+   "threshold" : [false, "percent", 10],
+   "maxcolors" : [true, 8]
  },
  "text_import" : "",
  "picture_export" : "",

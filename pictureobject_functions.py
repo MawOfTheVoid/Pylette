@@ -78,7 +78,6 @@ def percent_threshold(unmutable_list, percent_boundry, pixelcount):
     for count_color in unmutable_list:
         amount = count_color[0]
         percent = (amount / pixelcount) * 100
-        print(percent)
         if percent >= percent_boundry:
             colors.append(count_color[1])
     return colors

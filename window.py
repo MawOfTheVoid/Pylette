@@ -3,7 +3,7 @@
 # Created by: PyQt5 UI code generator 5.12.2
 
 from PyQt5.QtCore import QMetaObject, QRect, QCoreApplication
-from PyQt5.QtWidgets import QWidget, QPushButton
+from PyQt5.QtWidgets import QWidget, QPushButton, QFileDialog
 import filemanager
 
 
@@ -39,10 +39,15 @@ class Ui_MainWindow(object):
         _translate = QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.filedialog.setText(_translate("MainWindow", "Filedialog"))
-        self.export_as_png.setText(_translate("MainWindow", "Export as png"))
+        self.export_as_png.setText(_translate("MainWindow", "Export"))
 
     def filedialog_buttonpress(self):
         self.filehandler.add_file_from_filedialog()
 
     def export_press(self):
-        print("Hey")
+        saveable_formats = """Png (*.png);;Jpg (*.jpg);;
+        Bmp (*.bmp)"""
+        filename = QFileDialog.getSaveFileName(
+            None, caption="Export colors",
+            filter=saveable_formats)
+        print(filename)

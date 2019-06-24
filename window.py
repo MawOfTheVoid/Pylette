@@ -56,16 +56,16 @@ class Ui_MainWindow(object):
         # call appropiate function
         colors = self.filemanager.get_all_colors()
         if not colors:
-            reply = QMessageBox.critical(
+            QMessageBox.critical(
                 self.filedialog, 'Fatal Error!!!!!',
                 """If you dont select any colors to export your
-                computer will explode!!!""", QMessageBox.Ok)
+                computer may explode!!!\n
+                You have been warned...""", QMessageBox.Ok)
             return
-        path, type, format = export.get_path()
-        if type == "picture":
+        path, file_type = export.get_path()
+        if file_type == "picture":
             settings = self.conf.get_picture_export_settings()
-            print(settings)
-            export.save_picture(path, format, settings)
+            export.save_picture(path, settings, colors)
         else:
             # check for other formats
             pass

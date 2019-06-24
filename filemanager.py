@@ -7,9 +7,7 @@ class Filemanager():
     on demand"""
 
     def __init__(self, conf):
-        self.picture_objects = []
-        self.text_objects = []
-        self.color_dialog_object = []
+        self.color_objects = []
         self.conf = conf
 
     def add_file_from_filedialog(self):
@@ -17,7 +15,6 @@ class Filemanager():
         if file_name[0] == "":
             print("No file opened")
             return
-        print(file_name[0])
         self.create_new_object(file_name[0])
 
     def add_file_from_drag(self):
@@ -32,8 +29,7 @@ class Filemanager():
 
         if self.is_picture(filepath):
             picture = pictureobject.Picture_object(filepath, self.conf)
-            print(picture.filename)
-            self.picture_objects.append(picture)
+            self.color_objects.append(picture)
         # Add checks for special text files and gifs
         pass
 
@@ -50,11 +46,10 @@ class Filemanager():
         pass
 
     def get_all_colors(self):
-        # open new list
-        # call get_colors on every element
-        # add the new colors to the list
-        # return the list
-        pass
+        colors = []
+        for object in self.color_objects:
+            colors += object.get_colors()
+        return colors
 
     def is_picture(self, filepath):
         if (

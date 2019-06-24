@@ -20,9 +20,23 @@ def get_path():
     file_type = export_format(fileending)
     return filepath, file_type
 
+def remove_alpha(colors):
+    for color in colors:
+        color.setAlpha(255)
+
 def save_picture(path, settings, colors):
     colors.sort(key=lambda qcolor: qcolor.getHsv())
     palette = Image.new("RGBA", size=(len(colors), 1))
+    if settings["alpha"] is False:
+        remove_alpha(colors)
     for index, qcolor in enumerate(colors):
         palette.putpixel((index, 0), qcolor.getRgb())
-    palette.resize((800,800), resample=Image.NEAREST).show()
+    if settings["resize"][0] is True:
+        _, width, height = settings["resize"]
+        palette = palette.resize((width, height), resample=Image.NEAREST)
+    elif settings["scale"][0] is True:
+        factor = settings["scale"][1]
+        palette = palette.resize(
+            (palette.width * factor, palette.height * factor),
+            resample=Image.NEAREST)
+    palette.show()

@@ -83,7 +83,12 @@ def percent_threshold(unmutable_list, percent_boundry, pixelcount):
 
 
 def get_quantize(filepath, maximal_colors):
-    # not DRY need to refactor one other day in the distant future
+    # TODO not DRY need to refactor one other day in the distant future
+
+    # quantizes the image and converts it back to rgb because this is the only
+    # format where you can call getcolors() and the it goes through the process
+    # to make a QColor-list because the original way isnt compatiple with
+    # the quantization.
     img = Image.open(filepath)
     img = img.quantize(colors=maximal_colors)
     colorlist = img.convert("RGB").getcolors(maxcolors=maximal_colors)

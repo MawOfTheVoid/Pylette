@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(322, 164)
         MainWindow.setAutoFillBackground(False)
         self.centralwidget = QWidget(MainWindow)
-        self.filehandler = filemanager.Filemanager(conf)
+        self.filemanager = filemanager.Filemanager(conf)
         self.conf = conf
 
         # initialising the buttons
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.export_as_png.setText(_translate("MainWindow", "Export"))
 
     def filedialog_buttonpress(self):
-        self.filehandler.add_file_from_filedialog()
+        self.filemanager.add_file_from_filedialog()
 
     def export_press(self):
         # open a savefialog
@@ -58,4 +58,5 @@ class Ui_MainWindow(object):
         filename = QFileDialog.getSaveFileName(
             None, caption="Export colors",
             filter=saveable_formats)
-        print(filename)
+        print(filename[1][6:-1])
+        print(self.filemanager.get_all_colors())

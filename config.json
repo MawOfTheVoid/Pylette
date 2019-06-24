@@ -16,6 +16,9 @@
   ]
  },
  "text_import": "",
- "picture_export": "",
+ "picture_export": {
+  "scale": 1,
+  "alpha": true
+ },
  "text_export": ""
 }

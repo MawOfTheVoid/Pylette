@@ -18,7 +18,9 @@ class ConfigManager():
                 'maxcolors': [True, 8],
                 'quantize': [False, 8]},
             'text_import': '',
-            'picture_export': '',
+            'picture_export': {
+                'scale': 1,
+                'alpha': True},
             'text_export': ''}
         self.dict = self.get_dict_from_file()
 

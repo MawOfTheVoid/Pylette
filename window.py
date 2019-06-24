@@ -63,7 +63,9 @@ class Ui_MainWindow(object):
             return
         path, type, format = export.get_path()
         if type == "picture":
-            export.save_picture(path, format)
+            settings = self.conf.get_picture_export_settings()
+            print(settings)
+            export.save_picture(path, format, settings)
         else:
             # check for other formats
             pass

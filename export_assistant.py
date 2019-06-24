@@ -39,4 +39,5 @@ def save_picture(path, settings, colors):
         palette = palette.resize(
             (palette.width * factor, palette.height * factor),
             resample=Image.NEAREST)
-    palette.show()
+    #palette.show()
+    palette.save(path)

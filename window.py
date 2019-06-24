@@ -3,8 +3,9 @@
 # Created by: PyQt5 UI code generator 5.12.2
 
 from PyQt5.QtCore import QMetaObject, QRect, QCoreApplication
-from PyQt5.QtWidgets import QWidget, QPushButton, QFileDialog
+from PyQt5.QtWidgets import QWidget, QPushButton, QFileDialog, QMessageBox
 import filemanager
+import export_assistant as export
 
 
 class Ui_MainWindow(object):
@@ -53,10 +54,16 @@ class Ui_MainWindow(object):
         # if not append the file extension
         # check wether export as a picture a known text type or an unknown type
         # call appropiate function
-        saveable_formats = """Png (*.png);;Jpg (*.jpg);;
-        Bmp (*.bmp)"""
-        filename = QFileDialog.getSaveFileName(
-            None, caption="Export colors",
-            filter=saveable_formats)
-        print(filename[1][6:-1])
-        print(self.filemanager.get_all_colors())
+        colors = self.filemanager.get_all_colors()
+        if not colors:
+            reply = QMessageBox.critical(
+                self.filedialog, 'Fatal Error!!!!!',
+                """If you dont select any colors to export your
+                computer will explode!!!""", QMessageBox.Ok)
+            return
+        path, type, format = export.get_path()
+        if type == "picture":
+            export.save_picture(path, format)
+        else:
+            # check for other formats
+            pass

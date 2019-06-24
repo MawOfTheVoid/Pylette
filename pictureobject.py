@@ -11,8 +11,6 @@ class Picture_object():
         self.pixels = pic_functions.get_pixelcount(filepath)
         self.unmutable_list = pic_functions.get_list_from_file(filepath)
         self.mutable_list = self.reset_list()
-        for color in self.mutable_list:
-            print(color.getRgb())
 
     def reset_list(self):
         # it takes the unmutable_list and calls
@@ -28,6 +26,10 @@ class Picture_object():
         elif settings["threshold"][0] is True:
                 percent = settings["threshold"][2]
                 colors = pic_functions.percent_threshold(self.unmutable_list, percent, self.pixels)
+
+        elif settings["quantize"][0] is True:
+            # still hav to do quantize
+            pass
         return colors
 
     def get_colors(self):

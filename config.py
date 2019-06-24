@@ -15,7 +15,8 @@ class ConfigManager():
             'picture_import': {
                 'reduce_colors': True,
                 'threshold': [False, 'percent', 100],
-                'maxcolors': [True, 8]},
+                'maxcolors': [True, 8],
+                'quantize': [False, 8]},
             'text_import': '',
             'picture_export': '',
             'text_export': ''}
@@ -25,7 +26,7 @@ class ConfigManager():
         # optional: checking the keys and values of the dict for integrety
         if not os.path.isfile(self.adress):
             with open(self.adress, "w") as file:
-                json.dump(file, indent=1)
+                json.dump(self.default_json, file, indent=1)
         with open(self.adress, "r") as file:
             return json.load(file)
 

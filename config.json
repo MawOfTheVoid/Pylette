@@ -7,11 +7,11 @@
    100
   ],
   "maxcolors": [
-   true,
+   false,
    8
   ],
   "quantize": [
-   false,
+   true,
    8
   ]
  },

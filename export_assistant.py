@@ -29,8 +29,10 @@ def save_picture(path, settings, colors):
     palette = Image.new("RGBA", size=(len(colors), 1))
     if settings["alpha"] is False:
         remove_alpha(colors)
+
     for index, qcolor in enumerate(colors):
         palette.putpixel((index, 0), qcolor.getRgb())
+
     if settings["resize"][0] is True:
         _, width, height = settings["resize"]
         palette = palette.resize((width, height), resample=Image.NEAREST)
@@ -39,5 +41,5 @@ def save_picture(path, settings, colors):
         palette = palette.resize(
             (palette.width * factor, palette.height * factor),
             resample=Image.NEAREST)
-    #palette.show()
-    palette.save(path)
+    palette.show()
+    #palette.save(path)

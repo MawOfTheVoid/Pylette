@@ -80,3 +80,26 @@ def percent_threshold(unmutable_list, percent_boundry, pixelcount):
         if percent >= percent_boundry:
             colors.append(count_color[1])
     return colors
+
+
+def get_quantize(filepath, maximal_colors):
+    # not DRY need to refactor one other day in the distant future
+    img = Image.open(filepath)
+    img = img.quantize(colors=maximal_colors)
+    colorlist = img.convert("RGB").getcolors(maxcolors=maximal_colors)
+    qcolorlist = []
+    # picture has no alpha channel
+    if len(colorlist[0][1]) == 3:
+        for count_color in colorlist:
+            r, g, b = count_color[1]
+            qcolorlist.append(QColor.fromRgb(r, g, b))
+    # picture has alpha channel
+    elif len(colorlist[0][1]) == 4:
+        for count_color in colorlist:
+            r, g, b, a = count_color[1]
+            qcolorlist.append(
+                (QColor.fromRgb(r, g, b, alpha=a))
+            )
+    del colorlist
+    gc.collect()
+    return qcolorlist

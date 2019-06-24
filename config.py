@@ -19,7 +19,8 @@ class ConfigManager():
                 'quantize': [False, 8]},
             'text_import': '',
             'picture_export': {
-                'scale': 1,
+                'scale': [True, 32],
+                'resize':[False, 800, 800],
                 'alpha': True},
             'text_export': ''}
         self.dict = self.get_dict_from_file()

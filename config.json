@@ -17,7 +17,15 @@
  },
  "text_import": "",
  "picture_export": {
-  "scale": 1,
+  "scale": [
+   true,
+   32
+  ],
+  "resize": [
+   false,
+   800,
+   800
+  ],
   "alpha": true
  },
  "text_export": ""

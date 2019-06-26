@@ -1,66 +1,344 @@
 # -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'maybe_final.ui'
 #
 # Created by: PyQt5 UI code generator 5.12.2
+#
+# WARNING! All changes made in this file will be lost!
 
-from PyQt5.QtCore import QMetaObject, QRect, QCoreApplication
-from PyQt5.QtWidgets import QWidget, QPushButton, QFileDialog, QMessageBox
-import filemanager
+from PyQt5 import QtCore, QtWidgets
 import export_assistant as export
+import filemanager
+import config
 
 
 class Ui_MainWindow(object):
-    """Is responsible for the look of the mainwindow and the function calls
-    when a Button is pressed"""
 
-    def setup(self, MainWindow, conf):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(322, 164)
-        MainWindow.setAutoFillBackground(False)
-        self.centralwidget = QWidget(MainWindow)
-        self.filemanager = filemanager.Filemanager(conf)
-        self.conf = conf
+    def __init__(self, MainWindow):
+        self.init_rest()
+        self.create_window(MainWindow)
+        self.upper_layout(MainWindow)
+        self.create_color_buttons(MainWindow)
+        self.lower_layout(MainWindow)
+        self.bind_buttons()
 
-        # initialising the buttons
-        self.filedialog = QPushButton(self.centralwidget)
-        self.filedialog.setGeometry(QRect(10, 10, 141, 121))
-        self.filedialog.setAcceptDrops(True)
+    def init_rest(self):
+        self.conf = config.ConfigManager()
+        self.filemanager = filemanager.Filemanager(self.conf)
 
-        self.export_as_png = QPushButton(self.centralwidget)
-        self.export_as_png.setGeometry(QRect(150, 10, 161, 121))
-        self.export_as_png.setDefault(False)
+    def create_window(self, MainWindow):
+        MainWindow.setWindowTitle("Pylette")
+        MainWindow.resize(785, 275)
+        MainWindow.setMinimumSize(QtCore.QSize(375, 0))
 
-        # binding the buttons
-        self.filedialog.clicked.connect(self.filedialog_buttonpress)
-        self.export_as_png.clicked.connect(self.export_press)
+    def upper_layout(self, MainWindow):
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
 
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setSizeConstraint(
+            QtWidgets.QLayout.SetMaximumSize)
+        self.horizontalLayout.setContentsMargins(-1, -1, 0, 0)
+        self.horizontalLayout.setSpacing(6)
+
+        self.color_combo = QtWidgets.QComboBox(self.centralwidget)
+        self.color_combo.setMinimumSize(QtCore.QSize(100, 0))
+        self.color_combo.addItem("")
+        self.color_combo.setItemText(0, "No Colors available")
+        self.horizontalLayout.addWidget(self.color_combo)
+
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 20, QtWidgets.QSizePolicy.Maximum,
+            QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem)
+
+        self.filedialog_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.filedialog_btn.setMinimumSize(QtCore.QSize(80, 0))
+        self.filedialog_btn.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.filedialog_btn.setText("Filedialog")
+        self.horizontalLayout.addWidget(self.filedialog_btn)
+
+        self.colordialog_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.colordialog_btn.setMinimumSize(QtCore.QSize(80, 0))
+        self.colordialog_btn.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.colordialog_btn.setText("Custom Color")
+        self.horizontalLayout.addWidget(self.colordialog_btn)
+
+        self.settings_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.settings_btn.setMinimumSize(QtCore.QSize(80, 0))
+        self.settings_btn.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.settings_btn.setText("Settings")
+        self.horizontalLayout.addWidget(self.settings_btn)
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        spacerItem1 = QtWidgets.QSpacerItem(
+            30, 10, QtWidgets.QSizePolicy.Minimum,
+            QtWidgets.QSizePolicy.Maximum)
+        self.verticalLayout.addItem(spacerItem1)
+
+    def create_color_buttons(self, MainWindow):
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
+
+        self.pushButton_8 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_8.sizePolicy().hasHeightForWidth())
+        self.pushButton_8.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_8, 0, 1, 1, 1)
+
+        self.pushButton_15 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_15.sizePolicy().hasHeightForWidth())
+        self.pushButton_15.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_15, 1, 3, 1, 1)
+
+        self.pushButton_16 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_16.sizePolicy().hasHeightForWidth())
+        self.pushButton_16.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_16, 1, 4, 1, 1)
+
+        self.pushButton_11 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_11.sizePolicy().hasHeightForWidth())
+        self.pushButton_11.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_11, 1, 2, 1, 1)
+
+        self.pushButton_13 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_13.sizePolicy().hasHeightForWidth())
+        self.pushButton_13.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_13, 0, 3, 1, 1)
+
+        self.pushButton_12 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_12.sizePolicy().hasHeightForWidth())
+        self.pushButton_12.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_12, 0, 2, 1, 1)
+
+        self.pushButton_10 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_10.sizePolicy().hasHeightForWidth())
+        self.pushButton_10.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_10, 1, 1, 1, 1)
+
+        self.pushButton_9 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_9.sizePolicy().hasHeightForWidth())
+        self.pushButton_9.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_9, 1, 0, 1, 1)
+
+        self.pushButton_7 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_7.sizePolicy().hasHeightForWidth())
+        self.pushButton_7.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_7, 0, 0, 1, 1)
+
+        self.pushButton_14 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_14.sizePolicy().hasHeightForWidth())
+        self.pushButton_14.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_14, 0, 4, 1, 1)
+
+        self.pushButton_18 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_18.sizePolicy().hasHeightForWidth())
+        self.pushButton_18.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_18, 0, 6, 1, 1)
+
+        self.pushButton_17 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_17.sizePolicy().hasHeightForWidth())
+        self.pushButton_17.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_17, 0, 5, 1, 1)
+
+        self.pushButton_19 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_19.sizePolicy().hasHeightForWidth())
+        self.pushButton_19.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_19, 0, 7, 1, 1)
+
+        self.pushButton_20 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_20.sizePolicy().hasHeightForWidth())
+        self.pushButton_20.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_20, 0, 8, 1, 1)
+
+        self.pushButton_21 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_21.sizePolicy().hasHeightForWidth())
+        self.pushButton_21.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_21, 0, 9, 1, 1)
+
+        self.pushButton_22 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_22.sizePolicy().hasHeightForWidth())
+        self.pushButton_22.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_22, 1, 5, 1, 1)
+
+        self.pushButton_23 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_23.sizePolicy().hasHeightForWidth())
+        self.pushButton_23.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_23, 1, 6, 1, 1)
+
+        self.pushButton_24 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_24.sizePolicy().hasHeightForWidth())
+        self.pushButton_24.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_24, 1, 7, 1, 1)
+
+        self.pushButton_25 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_25.sizePolicy().hasHeightForWidth())
+        self.pushButton_25.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_25, 1, 8, 1, 1)
+
+        self.pushButton_26 = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.pushButton_26.sizePolicy().hasHeightForWidth())
+        self.pushButton_26.setSizePolicy(sizePolicy)
+        self.gridLayout.addWidget(self.pushButton_26, 1, 9, 1, 1)
+
+        self.verticalLayout.addLayout(self.gridLayout)
+
+    def lower_layout(self, MainWindow):
+        spacerItem2 = QtWidgets.QSpacerItem(
+            30, 10, QtWidgets.QSizePolicy.Minimum,
+            QtWidgets.QSizePolicy.Maximum)
+        self.verticalLayout.addItem(spacerItem2)
+
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setSizeConstraint(
+            QtWidgets.QLayout.SetMinimumSize)
+        self.horizontalLayout_2.setSpacing(6)
+
+        self.delete_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.delete_btn.setMinimumSize(QtCore.QSize(80, 0))
+        self.delete_btn.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.delete_btn.setText("Delete File")
+        self.horizontalLayout_2.addWidget(self.delete_btn)
+
+        self.reset_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.reset_btn.setMinimumSize(QtCore.QSize(80, 0))
+        self.reset_btn.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.reset_btn.setText("Reset File")
+        self.horizontalLayout_2.addWidget(self.reset_btn)
+
+        spacerItem3 = QtWidgets.QSpacerItem(
+            20, 20, QtWidgets.QSizePolicy.Maximum,
+            QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem3)
+
+        self.export_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.export_btn.setMinimumSize(QtCore.QSize(150, 0))
+        self.export_btn.setText("Export")
+        self.horizontalLayout_2.addWidget(self.export_btn)
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.retranslateUi(MainWindow)
-        QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
-        _translate = QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.filedialog.setText(_translate("MainWindow", "Filedialog"))
-        self.export_as_png.setText(_translate("MainWindow", "Export"))
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        MainWindow.setStatusBar(self.statusbar)
+
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def bind_buttons(self):
+        self.filedialog_btn.clicked.connect(self.filedialog_buttonpress)
+        self.export_btn.clicked.connect(self.export_press)
 
     def filedialog_buttonpress(self):
         self.filemanager.add_file_from_filedialog()
 
     def export_press(self):
-        # open a savefialog
-        # call settings
-        # check wether the end of string has a fileending that fits with the
-        # the fileending in the second element of the tuple
-        # if not append the file extension
-        # check wether export as a picture a known text type or an unknown type
-        # call appropiate function
         colors = self.filemanager.get_all_colors()
         if not colors:
-            QMessageBox.critical(
+            QtWidgets.QMessageBox.critical(
                 self.filedialog, 'Fatal Error!!!!!',
                 """If you dont select any colors to export your
                 computer may explode!!!\n
-                You have been warned...""", QMessageBox.Ok)
+                You have been warned...""", QtWidgets.QMessageBox.Ok)
             return
         path, file_type = export.get_path()
         if file_type == "picture":

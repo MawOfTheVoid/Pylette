@@ -1,10 +1,12 @@
 from PyQt5.QtWidgets import QFileDialog
 from PIL import Image
 
+
 def export_format(fileending):
     picture_endings = [".png", ".jpg", ".bmp"]
     if fileending in picture_endings:
         return "picture"
+
 
 def get_path():
     saveable_formats = """Png (*.png);;Jpg (*.jpg);;
@@ -20,9 +22,11 @@ def get_path():
     file_type = export_format(fileending)
     return filepath, file_type
 
+
 def remove_alpha(colors):
     for color in colors:
         color.setAlpha(255)
+
 
 def save_picture(path, settings, colors):
     colors.sort(key=lambda qcolor: qcolor.getHsv())
@@ -42,4 +46,4 @@ def save_picture(path, settings, colors):
             (palette.width * factor, palette.height * factor),
             resample=Image.NEAREST)
     palette.show()
-    #palette.save(path)
+    # palette.save(path)

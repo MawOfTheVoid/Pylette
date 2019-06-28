@@ -335,7 +335,7 @@ class Ui_MainWindow(object):
         colors = self.filemanager.get_all_colors()
         if not colors:
             QtWidgets.QMessageBox.critical(
-                self.filedialog, 'Fatal Error!!!!!',
+                self.export_btn, 'Fatal Error!!!!!',
                 """If you dont select any colors to export your
                 computer may explode!!!\n
                 You have been warned...""", QtWidgets.QMessageBox.Ok)

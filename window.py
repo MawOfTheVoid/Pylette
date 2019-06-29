@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 import export_assistant as export
+from settings_window import Settings_window
 import filemanager
 import config
 
@@ -15,16 +16,18 @@ import config
 class Ui_MainWindow(object):
 
     def __init__(self, MainWindow):
-        self.init_rest()
+        self.init_rest(MainWindow)
         self.create_window(MainWindow)
         self.upper_layout(MainWindow)
         self.create_color_buttons(MainWindow)
         self.lower_layout(MainWindow)
         self.bind_buttons()
 
-    def init_rest(self):
+    def init_rest(self, MainWindow):
         self.conf = config.ConfigManager()
         self.filemanager = filemanager.Filemanager(self.conf)
+        self.settings_window = Settings_window(MainWindow, self.conf)
+
 
     def create_window(self, MainWindow):
         MainWindow.setWindowTitle("Pylette")
@@ -327,6 +330,10 @@ class Ui_MainWindow(object):
     def bind_buttons(self):
         self.filedialog_btn.clicked.connect(self.filedialog_buttonpress)
         self.export_btn.clicked.connect(self.export_press)
+        self.settings_btn.clicked.connect(self.settings_press)
+
+    def settings_press(self):
+        self.settings_window.exec_()
 
     def filedialog_buttonpress(self):
         self.filemanager.add_file_from_filedialog()

@@ -8,6 +8,7 @@ class Settings_window(QtWidgets.QDialog):
         self.functionality(parent, config)
         self.mark_up()
         self.bind_buttons()
+        self.get_settings()
         # to grey out the button if they are disabled by default
         self.reduce_clicked(self.reduce_checkbox.checkState())
 
@@ -244,3 +245,34 @@ class Settings_window(QtWidgets.QDialog):
     def apply_btn_clicked(self, event):
         print(event)
         self.done(0)
+
+    def get_settings(self):
+        setting = self.conf.get_all_settings()
+
+        if setting["picture_import"]["reduce_colors"] is True:
+            reduce_activate = 2
+        elif setting["picture_import"]["reduce_colors"] is False:
+            reduce_activate = 0
+        self.reduce_checkbox.setCheckState(reduce_activate)
+
+        self.quantize_radio.setChecked(setting["picture_import"]["quantize"][0])
+        self.quantize_spin.setValue(setting["picture_import"]["quantize"][1])
+
+        self.maxcolors_radio.setChecked(setting["picture_import"]["maxcolors"][0])
+        self.maxcolors_spin.setValue(setting["picture_import"]["maxcolors"][1])
+
+        self.threshold_radio.setChecked(setting["picture_import"]["threshold"][0])
+        self.threshold_spin.setValue(setting["picture_import"]["threshold"][1])
+
+        if setting["picture_export"]["alpha"] is True:
+            reduce_activate = 2
+        elif setting["picture_export"]["alpha"] is False:
+            reduce_activate = 0
+        self.alpha_checkBox.setCheckState(reduce_activate)
+
+        self.scaling_radio.setChecked(setting["picture_export"]["scale"][0])
+        self.scaling_spin.setValue(setting["picture_export"]["scale"][1])
+
+        self.resizing_radio.setChecked(setting["picture_export"]["resize"][0])
+        self.width_spin.setValue(setting["picture_export"]["resize"][0])
+        self.height_spin.setValue(setting["picture_export"]["resize"][1])

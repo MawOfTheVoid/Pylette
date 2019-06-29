@@ -9,7 +9,7 @@ class Picture_object():
         self.filepath = filepath
         self.is_changed = False
         self.filename = pic_functions.get_filename_from_path(filepath)
-        self.pixels = pic_functions.get_pixelcount(filepath)
+        self.size = pic_functions.get_pixelcount(filepath)
         self.unmutable_list = pic_functions.get_list_from_file(filepath)
         self.mutable_list = self.reset_list()
 
@@ -26,7 +26,7 @@ class Picture_object():
 
         elif settings["threshold"][0] is True:
             percent = settings["threshold"][1]
-            colors = pic_functions.percent_threshold(self.unmutable_list, percent, self.pixels)
+            colors = pic_functions.percent_threshold(self.unmutable_list, percent, self.size)
 
         elif settings["quantize"][0] is True:
             maximal_colors = settings["quantize"][1]

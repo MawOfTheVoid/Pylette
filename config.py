@@ -14,7 +14,7 @@ class ConfigManager():
         self.default_json = {
             'picture_import': {
                 'reduce_colors': True,
-                'threshold': [False, 'percent', 100],
+                'threshold': [False, 100],
                 'maxcolors': [True, 8],
                 'quantize': [False, 8]},
             'text_import': '',
@@ -44,3 +44,6 @@ class ConfigManager():
 
     def get_text_export_settings(self):
         return self.dict["text_export"]
+
+    def get_all_settings(self):
+        return self.dict

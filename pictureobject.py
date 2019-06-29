@@ -25,7 +25,7 @@ class Picture_object():
             colors = pic_functions.maxcolors(self.unmutable_list, maximal_colors)
 
         elif settings["threshold"][0] is True:
-            percent = settings["threshold"][2]
+            percent = settings["threshold"][1]
             colors = pic_functions.percent_threshold(self.unmutable_list, percent, self.pixels)
 
         elif settings["quantize"][0] is True:

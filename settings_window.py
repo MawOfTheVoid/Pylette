@@ -236,7 +236,7 @@ class Settings_window(QtWidgets.QDialog):
             spin.setDisabled(is_activated)
 
     def reset_btn_clicked(self, event):
-        print(event)
+        self.dict_to_window(self.conf.default_json)
 
     def cancel_btn_clicked(self, event):
         print(event)

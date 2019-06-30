@@ -15,8 +15,8 @@ class ConfigManager():
             'picture_import': {
                 'reduce_colors': True,
                 'threshold': [False, 100],
-                'maxcolors': [True, 8],
-                'quantize': [False, 8]},
+                'maxcolors': [False, 8],
+                'quantize': [True, 8]},
             'text_import': '',
             'picture_export': {
                 'scale': [True, 32],

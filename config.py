@@ -21,7 +21,7 @@ class ConfigManager():
             'picture_export': {
                 'scale': [True, 32],
                 'resize':[False, 800, 800],
-                'alpha': True},
+                'alpha': False},
             'text_export': ''}
         self.dict = self.get_dict_from_file()
 

@@ -35,7 +35,7 @@ class ConfigManager():
 
     def dict_to_file(self, dict):
         with open(self.adress, "w") as file:
-            json.dump(dict, file)
+            json.dump(dict, file, indent=1)
 
     def update(self, settings):
         self.dict_to_file(settings)

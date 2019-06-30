@@ -245,6 +245,7 @@ class Settings_window(QtWidgets.QDialog):
 
     def apply_btn_clicked(self, event):
         settings = self.window_to_dict()
+        self.conf.update(settings)
         self.done(0)
 
     def load_settings(self):

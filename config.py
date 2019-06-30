@@ -46,4 +46,4 @@ class ConfigManager():
         return self.dict["text_export"]
 
     def get_all_settings(self):
-        return self.dict
+        return self.dict.copy()

@@ -71,6 +71,7 @@ class Settings_window(QtWidgets.QDialog):
         self.quantize_spin = QtWidgets.QSpinBox(self)
         self.quantize_spin.setMinimum(1)
         self.quantize_spin.setValue(10)
+        self.quantize_spin.setMaximum(1000000)
         self.picture_import_spin.append(self.quantize_spin)
         self.horizontalLayout_5.addWidget(self.quantize_spin)
 
@@ -86,6 +87,7 @@ class Settings_window(QtWidgets.QDialog):
         self.maxcolors_spin = QtWidgets.QSpinBox(self)
         self.maxcolors_spin.setMinimum(1)
         self.maxcolors_spin.setValue(10)
+        self.maxcolors_spin.setMaximum(1000000)
         self.picture_import_spin.append(self.maxcolors_spin)
         self.horizontalLayout_3.addWidget(self.maxcolors_spin)
 
@@ -239,11 +241,10 @@ class Settings_window(QtWidgets.QDialog):
         self.dict_to_window(self.conf.default_json)
 
     def cancel_btn_clicked(self, event):
-        print(event)
         self.done(0)
 
     def apply_btn_clicked(self, event):
-        print(event)
+        settings = self.window_to_dict()
         self.done(0)
 
     def load_settings(self):
@@ -276,5 +277,40 @@ class Settings_window(QtWidgets.QDialog):
         self.scaling_spin.setValue(settings["picture_export"]["scale"][1])
 
         self.resizing_radio.setChecked(settings["picture_export"]["resize"][0])
-        self.width_spin.setValue(settings["picture_export"]["resize"][0])
-        self.height_spin.setValue(settings["picture_export"]["resize"][1])
+        self.width_spin.setValue(settings["picture_export"]["resize"][1])
+        self.height_spin.setValue(settings["picture_export"]["resize"][2])
+
+    def window_to_dict(self):
+        settings = self.conf.get_all_settings()
+        activate = self.reduce_checkbox.checkState()
+        if activate == 0:
+            activate == False
+        elif activate >= 1:
+            activate = True
+        settings["picture_import"]["reduce_colors"] = activate
+
+        truth = self.quantize_radio.isChecked()
+        value = self.quantize_spin.value()
+        settings["picture_import"]["quantize"] = [truth, value]
+
+        truth = self.threshold_radio.isChecked()
+        value = self.threshold_spin.value()
+        settings["picture_import"]["threshold"] = [truth, value]
+
+        activate = self.alpha_checkBox.checkState()
+        if activate == 0:
+            activate = False
+        elif activate >= 1:
+            activate = True
+        settings["picture_export"]["alpha"] = activate
+
+        truth = self.scaling_radio.isChecked()
+        value = self.scaling_spin.value()
+        settings["picture_export"]["scale"] = [truth, value]
+
+        truth = self.resizing_radio.isChecked()
+        width = self.width_spin.value()
+        height = self.height_spin.value()
+        settings["picture_export"]["resize"] = [truth, width, height]
+
+        return settings

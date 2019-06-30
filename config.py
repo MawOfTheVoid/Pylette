@@ -20,7 +20,7 @@ class ConfigManager():
             'text_import': '',
             'picture_export': {
                 'scale': [True, 32],
-                'resize':[False, 800, 800],
+                'resize': [False, 800, 800],
                 'alpha': False},
             'text_export': ''}
         self.dict = self.get_dict_from_file()

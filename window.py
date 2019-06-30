@@ -333,6 +333,7 @@ class Ui_MainWindow(object):
         self.settings_btn.clicked.connect(self.settings_press)
 
     def settings_press(self):
+        self.settings_window.load_settings()
         self.settings_window.exec_()
 
     def filedialog_buttonpress(self):

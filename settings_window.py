@@ -166,7 +166,7 @@ class Settings_window(QtWidgets.QDialog):
         # relates to Scaling
         self.scaling_spin = QtWidgets.QSpinBox(self)
         self.scaling_spin.setMinimum(1)
-        self.scaling_spin.setMaximum(100)
+        self.scaling_spin.setMaximum(1000000)
         self.horizontalLayout_9.addWidget(self.scaling_spin)
 
         self.verticalLayout.addLayout(self.horizontalLayout_9)

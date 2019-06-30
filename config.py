@@ -33,6 +33,14 @@ class ConfigManager():
         with open(self.adress, "r") as file:
             return json.load(file)
 
+    def dict_to_file(self, dict):
+        with open(self.adress, "w") as file:
+            json.dump(dict, file)
+
+    def update(self, settings):
+        self.dict_to_file(settings)
+        self.dict = self.get_dict_from_file()
+
     def get_picture_import_settings(self):
         return self.dict["picture_import"]
 

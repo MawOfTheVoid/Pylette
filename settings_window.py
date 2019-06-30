@@ -285,7 +285,7 @@ class Settings_window(QtWidgets.QDialog):
         settings = self.conf.get_all_settings()
         activate = self.reduce_checkbox.checkState()
         if activate == 0:
-            activate == False
+            activate = False
         elif activate >= 1:
             activate = True
         settings["picture_import"]["reduce_colors"] = activate

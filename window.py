@@ -331,6 +331,10 @@ class Ui_MainWindow(object):
         self.filedialog_btn.clicked.connect(self.filedialog_buttonpress)
         self.export_btn.clicked.connect(self.export_press)
         self.settings_btn.clicked.connect(self.settings_press)
+        self.colordialog_btn.clicked.connect(self.colordialog_press)
+
+    def colordialog_press(self):
+        self.filemanager.open_color_dialog()
 
     def settings_press(self):
         self.settings_window.load_settings()

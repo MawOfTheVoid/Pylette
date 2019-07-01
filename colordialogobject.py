@@ -1,12 +1,10 @@
 from PyQt5.QtWidgets import QColorDialog
 
 
-class Color_dialog__object():
+class Colordialog__object():
     """Gives an interface to access the colors of a picture."""
 
-    def __init__(self, filepath, conf):
-        self.conf = conf
-        self.filepath = filepath
+    def __init__(self):
         self.is_changed = False
         self.filename = "Custom Colors"
         self.mutable_list = []
@@ -17,10 +15,7 @@ class Color_dialog__object():
     def get_colors(self):
         return self.mutable_list
 
-    def open_dialog(self):
+    def get_custom_color(self):
         color = QColorDialog.getColor()
-        print(color)
-
         if color.isValid():
-            print(color.name())
             self.mutable_list.append(color)

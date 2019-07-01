@@ -1,3 +1,4 @@
+from colordialogobject import Colordialog__object
 from PyQt5.QtWidgets import QFileDialog
 import pictureobject
 
@@ -9,6 +10,8 @@ class Filemanager():
     def __init__(self, conf):
         self.color_objects = []
         self.conf = conf
+        self.colordialog = Colordialog__object()
+        self.color_objects.append(self.colordialog)
 
     def add_file_from_filedialog(self):
         file_name = QFileDialog.getOpenFileName()
@@ -67,3 +70,6 @@ class Filemanager():
             return True
         else:
             return False
+
+    def open_color_dialog(self):
+        self.colordialog.get_custom_color()

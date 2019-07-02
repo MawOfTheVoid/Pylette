@@ -341,13 +341,17 @@ class Ui_MainWindow(object):
         self.reset_btn.clicked.connect(self.reset_press)
 
     def reset_press(self):
-        print("Reset")
+        combo_index = self.color_combo.currentIndex()
+        object_index = combo_index - 1
+        self.filemanager.color_objects[object_index].reset_list()
+        self.update_gui()
 
     def delete_press(self):
         print("Delete")
 
     def update_gui(self, combo_index):
         object_index = combo_index - 1
+        self.update_first_combo()
         if combo_index == 0:
             self.delete_btn.setDisabled(True)
             self.reset_btn.setDisabled(True)
@@ -362,8 +366,15 @@ class Ui_MainWindow(object):
             colors = self.filemanager.color_objects[object_index].get_colors()
         # the rest comes later when the color buttons work
 
+    def update_first_combo(self):
+        if len(self.filemanager.color_objects) == 1 and not self.filemanager.color_objects[0]:
+            self.color_combo.setItemText(0, "No Colors available")
+        else:
+            self.color_combo.setItemText(0, "All Colors")
+
     def colordialog_press(self):
         self.filemanager.open_color_dialog()
+        self.update_gui()
 
     def settings_press(self):
         self.settings_window.load_settings()
@@ -374,6 +385,7 @@ class Ui_MainWindow(object):
         if succesful:
             filename = self.filemanager.get_filenames()[-1]
             self.color_combo.addItem(filename)
+        self.update_gui()
 
     def export_press(self):
         colors = self.filemanager.get_all_colors()

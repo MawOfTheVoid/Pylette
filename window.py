@@ -349,8 +349,9 @@ class Ui_MainWindow(object):
     def delete_press(self):
         combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
-
-        print("Delete")
+        del self.filemanager.color_objects[object_index]
+        self.color_combo.removeItem(combo_index)
+        self.update_gui()
 
     def update_gui(self):
         combo_index = self.color_combo.currentIndex()

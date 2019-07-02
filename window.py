@@ -344,7 +344,7 @@ class Ui_MainWindow(object):
         combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
         self.filemanager.color_objects[object_index].reset_list()
-        self.update_first_combo()
+        self.update_gui()
 
     def delete_press(self):
         combo_index = self.color_combo.currentIndex()
@@ -380,7 +380,7 @@ class Ui_MainWindow(object):
 
     def colordialog_press(self):
         self.filemanager.open_color_dialog()
-        self.update_first_combo()
+        self.update_gui()
 
     def settings_press(self):
         self.settings_window.load_settings()
@@ -391,7 +391,7 @@ class Ui_MainWindow(object):
         if succesful:
             filename = self.filemanager.get_filenames()[-1]
             self.color_combo.addItem(filename)
-        self.update_first_combo()
+        self.update_gui()
 
     def export_press(self):
         colors = self.filemanager.get_all_colors()

@@ -344,7 +344,7 @@ class Ui_MainWindow(object):
         combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
         self.filemanager.color_objects[object_index].reset_list()
-        self.update_gui()
+        self.update_first_combo()
 
     def delete_press(self):
         print("Delete")
@@ -369,7 +369,7 @@ class Ui_MainWindow(object):
     def update_first_combo(self):
         if (
             len(self.filemanager.color_objects) == 1
-                and not self.filemanager.color_objects[0]):
+                and not self.filemanager.color_objects[0].mutable_list):
             self.color_combo.setItemText(0, "No Colors available")
         else:
             self.color_combo.setItemText(0, "All Colors")

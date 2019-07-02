@@ -335,6 +335,14 @@ class Ui_MainWindow(object):
         self.settings_btn.clicked.connect(self.settings_press)
         self.colordialog_btn.clicked.connect(self.colordialog_press)
         self.color_combo.currentIndexChanged.connect(self.update_gui)
+        self.delete_btn.clicked.connect(self.delete_press)
+        self.reset_btn.clicked.connect(self.reset_press)
+
+    def reset_press(self):
+        print("Reset")
+
+    def delete_press(self):
+        print("Delete")
 
     def update_gui(self, event):
         print(event)

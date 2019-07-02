@@ -347,9 +347,13 @@ class Ui_MainWindow(object):
         self.update_first_combo()
 
     def delete_press(self):
+        combo_index = self.color_combo.currentIndex()
+        object_index = combo_index - 1
+
         print("Delete")
 
-    def update_gui(self, combo_index):
+    def update_gui(self):
+        combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
         self.update_first_combo()
         if combo_index == 0:

@@ -35,7 +35,7 @@ class Filemanager():
                     None, 'U trying to trick me?',
                     """U open a file just once!
                     \n\tCapisce?""", QMessageBox.Ok)
-        # Add checks for special text files and gifs
+        # Add checks for special text files
 
     def get_filenames(self):
         names = []

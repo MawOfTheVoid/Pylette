@@ -303,12 +303,14 @@ class Ui_MainWindow(object):
         self.delete_btn.setMinimumSize(QtCore.QSize(80, 0))
         self.delete_btn.setMaximumSize(QtCore.QSize(100, 16777215))
         self.delete_btn.setText("Delete File")
+        self.delete_btn.setDisabled(True)
         self.horizontalLayout_2.addWidget(self.delete_btn)
 
         self.reset_btn = QtWidgets.QPushButton(self.centralwidget)
         self.reset_btn.setMinimumSize(QtCore.QSize(80, 0))
         self.reset_btn.setMaximumSize(QtCore.QSize(100, 16777215))
         self.reset_btn.setText("Reset File")
+        self.reset_btn.setDisabled(True)
         self.horizontalLayout_2.addWidget(self.reset_btn)
 
         spacerItem3 = QtWidgets.QSpacerItem(
@@ -344,8 +346,21 @@ class Ui_MainWindow(object):
     def delete_press(self):
         print("Delete")
 
-    def update_gui(self, event):
-        print(event)
+    def update_gui(self, combo_index):
+        object_index = combo_index - 1
+        if combo_index == 0:
+            self.delete_btn.setDisabled(True)
+            self.reset_btn.setDisabled(True)
+            colors = self.filemanager.get_all_colors()
+        elif combo_index == 1:
+            self.delete_btn.setDisabled(True)
+            self.reset_btn.setDisabled(False)
+            colors = self.filemanager.color_objects[object_index].get_colors()
+        else:
+            self.delete_btn.setDisabled(False)
+            self.reset_btn.setDisabled(False)
+            colors = self.filemanager.color_objects[object_index].get_colors()
+        # the rest comes later when the color buttons work
 
     def colordialog_press(self):
         self.filemanager.open_color_dialog()

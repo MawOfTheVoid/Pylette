@@ -20,6 +20,12 @@ class Filemanager():
             return
         self.create_new_object(file_name[0])
 
+    def create_new_object(self, filepath):
+        # check the fileending
+        # create an object accordingly
+        # add it to the appropiate list
+        # update the gui
+
         if self.is_picture(filepath):
             picture = pictureobject.Picture_object(filepath, self.conf)
             if picture.filename not in self.get_filenames():

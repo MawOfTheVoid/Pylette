@@ -18,7 +18,7 @@ class Filemanager():
         if file_name[0] == "":
             print("No file opened")
             return
-        self.create_new_object(file_name[0])
+        return self.create_new_object(file_name[0])
 
     def create_new_object(self, filepath):
         # check the fileending
@@ -30,11 +30,13 @@ class Filemanager():
             picture = pictureobject.Picture_object(filepath, self.conf)
             if picture.filename not in self.get_filenames():
                 self.color_objects.append(picture)
+                return True
             else:
                 QMessageBox.warning(
                     None, 'U trying to trick me?',
                     """U open a file just once!
                     \n\tCapisce?""", QMessageBox.Ok)
+                return False
         # Add checks for special text files
 
     def get_filenames(self):

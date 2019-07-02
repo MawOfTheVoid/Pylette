@@ -347,7 +347,10 @@ class Ui_MainWindow(object):
         self.settings_window.exec_()
 
     def filedialog_buttonpress(self):
-        self.filemanager.add_file_from_filedialog()
+        succesful = self.filemanager.add_file_from_filedialog()
+        if succesful:
+            filename = self.filemanager.get_filenames()[-1]
+            self.color_combo.addItem(filename)
 
     def export_press(self):
         colors = self.filemanager.get_all_colors()

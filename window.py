@@ -48,6 +48,8 @@ class Ui_MainWindow(object):
         self.color_combo.setMinimumSize(QtCore.QSize(100, 0))
         self.color_combo.addItem("")
         self.color_combo.setItemText(0, "No Colors available")
+        self.color_combo.addItem("")
+        self.color_combo.setItemText(1, "Custom Color")
         self.horizontalLayout.addWidget(self.color_combo)
 
         spacerItem = QtWidgets.QSpacerItem(
@@ -332,6 +334,10 @@ class Ui_MainWindow(object):
         self.export_btn.clicked.connect(self.export_press)
         self.settings_btn.clicked.connect(self.settings_press)
         self.colordialog_btn.clicked.connect(self.colordialog_press)
+        self.color_combo.currentIndexChanged.connect(self.update_gui)
+
+    def update_gui(self, event):
+        print(event)
 
     def colordialog_press(self):
         self.filemanager.open_color_dialog()

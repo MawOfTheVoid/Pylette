@@ -376,7 +376,7 @@ class Ui_MainWindow(object):
 
     def colordialog_press(self):
         self.filemanager.open_color_dialog()
-        self.update_gui()
+        self.update_first_combo()
 
     def settings_press(self):
         self.settings_window.load_settings()
@@ -387,7 +387,7 @@ class Ui_MainWindow(object):
         if succesful:
             filename = self.filemanager.get_filenames()[-1]
             self.color_combo.addItem(filename)
-        self.update_gui()
+        self.update_first_combo()
 
     def export_press(self):
         colors = self.filemanager.get_all_colors()

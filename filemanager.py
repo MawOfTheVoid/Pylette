@@ -1,5 +1,5 @@
 from colordialogobject import Colordialog__object
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QMessageBox
 import pictureobject
 
 
@@ -20,10 +20,6 @@ class Filemanager():
             return
         self.create_new_object(file_name[0])
 
-    def add_file_from_drag(self):
-        # dont know yet
-        pass
-
     def create_new_object(self, filepath):
         # check the fileending
         # create an object accordingly
@@ -32,9 +28,20 @@ class Filemanager():
 
         if self.is_picture(filepath):
             picture = pictureobject.Picture_object(filepath, self.conf)
-            self.color_objects.append(picture)
+            if picture.filename not in self.get_filenames():
+                self.color_objects.append(picture)
+            else:
+                QMessageBox.warning(
+                    None, 'U trying to trick me?',
+                    """U open a file just once!
+                    \n\tCapisce?""", QMessageBox.Ok)
         # Add checks for special text files and gifs
-        pass
+
+    def get_filenames(self):
+        names = []
+        for object in self.color_objects:
+            names.append(object.filename)
+        return names
 
     def delete_file(self):
         # search for the object

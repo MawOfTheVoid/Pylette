@@ -367,7 +367,9 @@ class Ui_MainWindow(object):
         # the rest comes later when the color buttons work
 
     def update_first_combo(self):
-        if len(self.filemanager.color_objects) == 1 and not self.filemanager.color_objects[0]:
+        if (
+            len(self.filemanager.color_objects) == 1
+                and not self.filemanager.color_objects[0]):
             self.color_combo.setItemText(0, "No Colors available")
         else:
             self.color_combo.setItemText(0, "All Colors")

@@ -1,4 +1,6 @@
 from PyQt5.QtWidgets import QPushButton, QColorDialog
+from PyQt5.QtCore import Qt
+
 
 class Color_button(QPushButton):
 
@@ -15,5 +17,16 @@ class Color_button(QPushButton):
         style = f"background-color:rgb{color}"
         self.setStyleSheet(style)
 
-    def pressed(self, event):
-        pass
+    def mousePressEvent(self, QMouseEvent):
+        if QMouseEvent.button() == Qt.LeftButton:
+            print("Left Button Clicked")
+        elif QMouseEvent.button() == Qt.RightButton:
+            #do what you want here
+            print("Right Button Clicked")
+            self.delete()
+
+    def delete(self):
+        self.list = []
+        self.index = None
+        self.setStyleSheet("")
+        self.setDisabled(True)

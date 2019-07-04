@@ -89,7 +89,7 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
 
-        self.color_button_1 = Color_button(self.centralwidget, 0)
+        self.color_button_1 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
         self.color_button_1.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_1, 0, 1, 1, 1)
 
-        self.color_button_13 = Color_button(self.centralwidget, 0)
+        self.color_button_13 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -109,7 +109,7 @@ class Ui_MainWindow(object):
         self.color_button_13.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_13, 1, 3, 1, 1)
 
-        self.color_button_14 = Color_button(self.centralwidget, 0)
+        self.color_button_14 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.color_button_14.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_14, 1, 4, 1, 1)
 
-        self.color_button_12 = Color_button(self.centralwidget, 0)
+        self.color_button_12 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -129,7 +129,7 @@ class Ui_MainWindow(object):
         self.color_button_12.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_12, 1, 2, 1, 1)
 
-        self.color_button_3 = Color_button(self.centralwidget, 0)
+        self.color_button_3 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -139,7 +139,7 @@ class Ui_MainWindow(object):
         self.color_button_3.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_3, 0, 3, 1, 1)
 
-        self.color_button_2 = Color_button(self.centralwidget, 0)
+        self.color_button_2 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
         self.color_button_2.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_2, 0, 2, 1, 1)
 
-        self.color_button_11 = Color_button(self.centralwidget, 0)
+        self.color_button_11 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -159,7 +159,7 @@ class Ui_MainWindow(object):
         self.color_button_11.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_11, 1, 1, 1, 1)
 
-        self.color_button_10 = Color_button(self.centralwidget, 0)
+        self.color_button_10 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         self.color_button_10.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_10, 1, 0, 1, 1)
 
-        self.color_button_0 = Color_button(self.centralwidget, 0)
+        self.color_button_0 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -179,7 +179,7 @@ class Ui_MainWindow(object):
         self.color_button_0.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_0, 0, 0, 1, 1)
 
-        self.color_button_4 = Color_button(self.centralwidget, 0)
+        self.color_button_4 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
         self.color_button_4.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_4, 0, 4, 1, 1)
 
-        self.color_button_6 = Color_button(self.centralwidget, 0)
+        self.color_button_6 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -199,7 +199,7 @@ class Ui_MainWindow(object):
         self.color_button_6.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_6, 0, 6, 1, 1)
 
-        self.color_button_5 = Color_button(self.centralwidget, 0)
+        self.color_button_5 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -209,7 +209,7 @@ class Ui_MainWindow(object):
         self.color_button_5.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_5, 0, 5, 1, 1)
 
-        self.color_button_7 = Color_button(self.centralwidget, 0)
+        self.color_button_7 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         self.color_button_7.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_7, 0, 7, 1, 1)
 
-        self.color_button_8 = Color_button(self.centralwidget, 0)
+        self.color_button_8 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -229,7 +229,7 @@ class Ui_MainWindow(object):
         self.color_button_8.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_8, 0, 8, 1, 1)
 
-        self.color_button_9 =Color_button(self.centralwidget, 0)
+        self.color_button_9 =Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -239,7 +239,7 @@ class Ui_MainWindow(object):
         self.color_button_9.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_9, 0, 9, 1, 1)
 
-        self.color_button_15 = Color_button(self.centralwidget, 0)
+        self.color_button_15 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -249,7 +249,7 @@ class Ui_MainWindow(object):
         self.color_button_15.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_15, 1, 5, 1, 1)
 
-        self.color_button_16 = Color_button(self.centralwidget, 0)
+        self.color_button_16 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -259,7 +259,7 @@ class Ui_MainWindow(object):
         self.color_button_16.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_16, 1, 6, 1, 1)
 
-        self.color_button_17 = Color_button(self.centralwidget, 0)
+        self.color_button_17 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -269,7 +269,7 @@ class Ui_MainWindow(object):
         self.color_button_17.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_17, 1, 7, 1, 1)
 
-        self.color_button_18 = Color_button(self.centralwidget, 0)
+        self.color_button_18 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -279,7 +279,7 @@ class Ui_MainWindow(object):
         self.color_button_18.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_18, 1, 8, 1, 1)
 
-        self.color_button_19 = Color_button(self.centralwidget, 0)
+        self.color_button_19 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -398,6 +398,7 @@ class Ui_MainWindow(object):
             self.delete_btn.setDisabled(False)
             self.reset_btn.setDisabled(False)
 
+        self.reset_all_color_btn()
         self.update_colorbuttons(object_index, combo_index)
 
         # the rest comes later when the color buttons work
@@ -447,6 +448,10 @@ class Ui_MainWindow(object):
             self.update_colorbuttons_all_palettes()
         else:
             self.update_colorbuttons_one_palette(object_index)
+
+    def reset_all_color_btn(self):
+        for btn in self.color_btn_list:
+            btn.reset()
 
     def update_colorbuttons_one_palette(self, object_index):
         palette_length = len(self.filemanager.color_objects[object_index].mutable_list)

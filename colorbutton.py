@@ -7,7 +7,9 @@ class Color_button(QPushButton):
         self.index = index
         self.list = []
 
-    def show(self, colorlist):
+    def update(self, colorlist, index):
+        self.setDisabled(False)
+        self.index = index
         self.list = colorlist
         color = self.list[self.index].getRgb()
         style = f"background-color:rgb{color}"
@@ -15,6 +17,3 @@ class Color_button(QPushButton):
 
     def pressed(self, event):
         pass
-
-    def hide(self):
-        self.hide()

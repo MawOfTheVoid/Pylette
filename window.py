@@ -22,6 +22,7 @@ class Ui_MainWindow(object):
         self.upper_layout(MainWindow)
         self.create_color_buttons(MainWindow)
         self.lower_layout(MainWindow)
+        self.color_button_list()
         self.bind_buttons()
 
     def init_rest(self, MainWindow):
@@ -332,6 +333,30 @@ class Ui_MainWindow(object):
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    def color_button_list(self):
+        self.color_btn_list = [
+            self.color_button_0,
+            self.color_button_1,
+            self.color_button_2,
+            self.color_button_3,
+            self.color_button_4,
+            self.color_button_5,
+            self.color_button_6,
+            self.color_button_7,
+            self.color_button_8,
+            self.color_button_9,
+            self.color_button_10,
+            self.color_button_11,
+            self.color_button_12,
+            self.color_button_13,
+            self.color_button_14,
+            self.color_button_15,
+            self.color_button_16,
+            self.color_button_17,
+            self.color_button_18,
+            self.color_button_19
+        ]
+
     def bind_buttons(self):
         self.filedialog_btn.clicked.connect(self.filedialog_buttonpress)
         self.export_btn.clicked.connect(self.export_press)
@@ -361,39 +386,16 @@ class Ui_MainWindow(object):
         if combo_index == 0:
             self.delete_btn.setDisabled(True)
             self.reset_btn.setDisabled(True)
-            colors = self.filemanager.get_all_colors()
         elif combo_index == 1:
             self.delete_btn.setDisabled(True)
             self.reset_btn.setDisabled(False)
-            colors = self.filemanager.color_objects[object_index].get_colors()
         else:
             self.delete_btn.setDisabled(False)
             self.reset_btn.setDisabled(False)
-            colors = self.filemanager.color_objects[object_index].get_colors()
+
+        self.update_colorbuttons(object_index, combo_index)
+
         # the rest comes later when the color buttons work
-        try:
-            self.color_button_0.show(self.filemanager.get_all_colors())
-            self.color_button_1.show(self.filemanager.get_all_colors())
-            self.color_button_2.show(self.filemanager.get_all_colors())
-            self.color_button_3.show(self.filemanager.get_all_colors())
-            self.color_button_4.show(self.filemanager.get_all_colors())
-            self.color_button_5.show(self.filemanager.get_all_colors())
-            self.color_button_6.show(self.filemanager.get_all_colors())
-            self.color_button_7.show(self.filemanager.get_all_colors())
-            self.color_button_8.show(self.filemanager.get_all_colors())
-            self.color_button_9.show(self.filemanager.get_all_colors())
-            self.color_button_10.show(self.filemanager.get_all_colors())
-            self.color_button_11.show(self.filemanager.get_all_colors())
-            self.color_button_12.show(self.filemanager.get_all_colors())
-            self.color_button_13.show(self.filemanager.get_all_colors())
-            self.color_button_14.show(self.filemanager.get_all_colors())
-            self.color_button_15.show(self.filemanager.get_all_colors())
-            self.color_button_16.show(self.filemanager.get_all_colors())
-            self.color_button_17.show(self.filemanager.get_all_colors())
-            self.color_button_18.show(self.filemanager.get_all_colors())
-            self.color_button_19.show(self.filemanager.get_all_colors())
-        except:
-            pass
 
     def update_first_combo(self):
         if (
@@ -434,3 +436,25 @@ class Ui_MainWindow(object):
         else:
             # check for other formats
             pass
+
+    def update_colorbuttons(self, object_index, combo_index):
+        if combo_index == 0:
+            self.update_colorbuttons_all_palettes()
+        else:
+            self.update_colorbuttons_one_palette(object_index)
+
+    def update_colorbuttons_one_palette(self, object_index):
+        palette_length = len(self.filemanager.color_objects[object_index].mutable_list)
+        colors = self.filemanager.color_objects[object_index].mutable_list
+        # All buttons can be used
+        if palette_length > 20:
+            for index in range(0, 20):
+                self.color_btn_list[index].update(colors, index)
+        elif palette_length >= 0 and palette_length < 20:
+            for index in range(0, palette_length):
+                self.color_btn_list[index].update(colors, index)
+            for index in range(palette_length, 20):
+                self.color_btn_list[index].setDisabled(True)
+
+    def update_colorbuttons_all_palettes(self):
+        pass

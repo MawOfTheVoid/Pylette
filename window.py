@@ -23,6 +23,7 @@ class Ui_MainWindow(object):
         self.create_color_buttons(MainWindow)
         self.lower_layout(MainWindow)
         self.color_button_list()
+#        self.color_button_list_operations()
         self.bind_buttons()
 
     def init_rest(self, MainWindow):
@@ -356,6 +357,10 @@ class Ui_MainWindow(object):
             self.color_button_18,
             self.color_button_19
         ]
+
+#    def color_button_list_operations(self):
+#        for btn in self.color_btn_list:
+#            btn.clicked.connect(btn.pressed)
 
     def bind_buttons(self):
         self.filedialog_btn.clicked.connect(self.filedialog_buttonpress)

@@ -31,7 +31,6 @@ class Ui_MainWindow(object):
         self.filemanager = filemanager.Filemanager(self.conf)
         self.settings_window = Settings_window(MainWindow, self.conf)
 
-
     def create_window(self, MainWindow):
         MainWindow.setWindowTitle("Pylette")
         MainWindow.resize(785, 275)
@@ -229,7 +228,7 @@ class Ui_MainWindow(object):
         self.color_button_8.setSizePolicy(sizePolicy)
         self.gridLayout.addWidget(self.color_button_8, 0, 8, 1, 1)
 
-        self.color_button_9 =Color_button(self.centralwidget, 0, self)
+        self.color_button_9 = Color_button(self.centralwidget, 0, self)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -454,7 +453,8 @@ class Ui_MainWindow(object):
             btn.reset()
 
     def update_colorbuttons_one_palette(self, object_index):
-        palette_length = len(self.filemanager.color_objects[object_index].mutable_list)
+        palette_length = len(
+            self.filemanager.color_objects[object_index].mutable_list)
         colors = self.filemanager.color_objects[object_index].mutable_list
         # All buttons can be used
         if palette_length > 20:

@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import QPushButton, QColorDialog, QMessageBox
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QColor
 
 
 class Color_button(QPushButton):
@@ -24,11 +23,8 @@ class Color_button(QPushButton):
 
     def mousePressEvent(self, QMouseEvent):
         if QMouseEvent.button() == Qt.LeftButton:
-            print("Left Button Clicked")
             self.colordialog()
         elif QMouseEvent.button() == Qt.RightButton:
-            #do what you want here
-            print("Right Button Clicked")
             self.delete()
 
     def delete(self):
@@ -47,7 +43,7 @@ class Color_button(QPushButton):
             if color.isValid():
                 self.list[self.index] = color
                 self.setStyleSheet(f"background-color:rgb{color.getRgb()}")
-        except:
+        except Exception:
             QMessageBox.critical(
                 None, 'Fatal Error!!!!!',
                 """You need to open colors to change them!!!\n

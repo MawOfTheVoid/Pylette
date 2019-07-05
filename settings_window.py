@@ -259,14 +259,20 @@ class Settings_window(QtWidgets.QDialog):
             reduce_activate = 0
         self.reduce_checkbox.setCheckState(reduce_activate)
 
-        self.quantize_radio.setChecked(settings["picture_import"]["quantize"][0])
-        self.quantize_spin.setValue(settings["picture_import"]["quantize"][1])
+        self.quantize_radio.setChecked(
+            settings["picture_import"]["quantize"][0])
+        self.quantize_spin.setValue(
+            settings["picture_import"]["quantize"][1])
 
-        self.maxcolors_radio.setChecked(settings["picture_import"]["maxcolors"][0])
-        self.maxcolors_spin.setValue(settings["picture_import"]["maxcolors"][1])
+        self.maxcolors_radio.setChecked(
+            settings["picture_import"]["maxcolors"][0])
+        self.maxcolors_spin.setValue(
+            settings["picture_import"]["maxcolors"][1])
 
-        self.threshold_radio.setChecked(settings["picture_import"]["threshold"][0])
-        self.threshold_spin.setValue(settings["picture_import"]["threshold"][1])
+        self.threshold_radio.setChecked(
+            settings["picture_import"]["threshold"][0])
+        self.threshold_spin.setValue(
+            settings["picture_import"]["threshold"][1])
 
         if settings["picture_export"]["alpha"] is True:
             reduce_activate = 2

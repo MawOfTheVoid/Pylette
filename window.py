@@ -460,11 +460,28 @@ class Ui_MainWindow(object):
         if palette_length > 20:
             for index in range(0, 20):
                 self.color_btn_list[index].update(colors, index)
-        elif palette_length >= 0 and palette_length < 20:
+        elif palette_length >= 0 and palette_length <= 20:
             for index in range(0, palette_length):
                 self.color_btn_list[index].update(colors, index)
-            for index in range(palette_length, 20):
-                self.color_btn_list[index].setDisabled(True)
 
     def update_colorbuttons_all_palettes(self):
-        pass
+        lower = 0
+        higher = 0
+        for object in self.filemanager.color_objects:
+            list_index = 0
+            colors = object.mutable_list
+            higher = lower + len(object.mutable_list)
+            if higher > 20:
+                higher = 20
+            for button_index in range(lower, higher):
+                self.color_btn_list[button_index].update(colors, list_index)
+                list_index += 1
+            lower = higher
+            if higher == 20:
+                break
+
+    def get_all_length(self):
+        length = 0
+        for object in self.filemanager.color_objects:
+            length += len(object.mutable_list)
+        return length

@@ -3,7 +3,7 @@
   "reduce_colors": true,
   "threshold": [
    false,
-   1
+   100
   ],
   "maxcolors": [
    false,
@@ -18,7 +18,7 @@
  "picture_export": {
   "scale": [
    true,
-   64
+   32
   ],
   "resize": [
    false,

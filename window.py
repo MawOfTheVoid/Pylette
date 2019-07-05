@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
         self.create_color_buttons(MainWindow)
         self.lower_layout(MainWindow)
         self.color_button_list()
-#        self.color_button_list_operations()
+        self.reset_all_color_btn()
         self.bind_buttons()
 
     def init_rest(self, MainWindow):

@@ -133,6 +133,7 @@ class Settings_window(QtWidgets.QDialog):
         self.alpha_checkBox = QtWidgets.QCheckBox(self)
         self.alpha_checkBox.setText("Export with Alpha Channel")
         self.horizontalLayout_7.addWidget(self.alpha_checkBox)
+        self.alpha_checkBox.hide()
 
         self.verticalLayout.addLayout(self.horizontalLayout_7)
 
@@ -299,6 +300,10 @@ class Settings_window(QtWidgets.QDialog):
         truth = self.quantize_radio.isChecked()
         value = self.quantize_spin.value()
         settings["picture_import"]["quantize"] = [truth, value]
+
+        truth = self.maxcolors_radio.isChecked()
+        value = self.maxcolors_spin.value()
+        settings["picture_import"]["maxcolors"] = [truth, value]
 
         truth = self.threshold_radio.isChecked()
         value = self.threshold_spin.value()

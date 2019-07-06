@@ -38,6 +38,7 @@ class Color_button(QPushButton):
         self.window_instance.update_gui()
 
     def colordialog(self):
+        self.window_instance.color_combo.setFocus()
         try:
             color = QColorDialog.getColor(self.list[self.index])
             if color.isValid():

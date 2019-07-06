@@ -102,7 +102,7 @@ class Settings_window(QtWidgets.QDialog):
         self.horizontalLayout_4.addWidget(self.threshold_radio)
 
         # relates to threshold
-        self.threshold_spin = QtWidgets.QSpinBox(self)
+        self.threshold_spin = QtWidgets.QDoubleSpinBox(self)
         self.threshold_spin.setMinimum(0)
         self.threshold_spin.setMaximum(100)
         self.threshold_spin.setValue(5)
@@ -135,26 +135,26 @@ class Settings_window(QtWidgets.QDialog):
         self.horizontalLayout_7.addWidget(self.alpha_checkBox)
         self.alpha_checkBox.hide()
 
-        self.verticalLayout.addLayout(self.horizontalLayout_7)
+        #self.verticalLayout.addLayout(self.horizontalLayout_7)
 
-        self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_8.setContentsMargins(20, -1, -1, -1)
+        #self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
+        #self.horizontalLayout_8.setContentsMargins(20, -1, -1, -1)
 
-        self.settings_scaling_lbl = QtWidgets.QLabel(self)
-        self.settings_scaling_lbl.setText("Export Picture Scaling")
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.settings_scaling_lbl.sizePolicy().hasHeightForWidth())
-        self.settings_scaling_lbl.setSizePolicy(sizePolicy)
-        self.horizontalLayout_8.addWidget(self.settings_scaling_lbl)
+        #self.settings_scaling_lbl = QtWidgets.QLabel(self)
+        #self.settings_scaling_lbl.setText("Export Picture Scaling")
+        #sizePolicy.setHorizontalStretch(0)
+        #sizePolicy.setVerticalStretch(0)
+        #sizePolicy.setHeightForWidth(
+        #    self.settings_scaling_lbl.sizePolicy().hasHeightForWidth())
+        #self.settings_scaling_lbl.setSizePolicy(sizePolicy)
+        #self.horizontalLayout_8.addWidget(self.settings_scaling_lbl)
 
-        self.line_3 = QtWidgets.QFrame(self)
-        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.horizontalLayout_8.addWidget(self.line_3)
+        #self.line_3 = QtWidgets.QFrame(self)
+        #self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
+        #self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        #self.horizontalLayout_8.addWidget(self.line_3)
 
-        self.verticalLayout.addLayout(self.horizontalLayout_8)
+        #self.verticalLayout.addLayout(self.horizontalLayout_8)
 
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_9.setContentsMargins(40, -1, -1, -1)

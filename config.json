@@ -3,7 +3,7 @@
   "reduce_colors": true,
   "threshold": [
    false,
-   100
+   100.0
   ],
   "maxcolors": [
    false,

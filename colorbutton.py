@@ -15,7 +15,7 @@ class Color_button(QPushButton):
         self.index = index
         self.list = colorlist
         color = self.list[self.index].getRgb()
-        self.setStyleSheet(f"background-color:rgb{color}")
+        self.setStyleSheet(f"background-color:rgba{color}")
 
     def reset(self):
         self.setStyleSheet("")
@@ -43,7 +43,7 @@ class Color_button(QPushButton):
             color = QColorDialog.getColor(self.list[self.index])
             if color.isValid():
                 self.list[self.index] = color
-                self.setStyleSheet(f"background-color:rgb{color.getRgb()}")
+                self.setStyleSheet(f"background-color:rgba{color.getRgb()}")
         except Exception:
             QMessageBox.critical(
                 None, 'Fatal Error!!!!!',

@@ -103,7 +103,7 @@ class Settings_window(QtWidgets.QDialog):
 
         # relates to threshold
         self.threshold_spin = QtWidgets.QDoubleSpinBox(self)
-        self.threshold_spin.setMinimum(0)
+        self.threshold_spin.setMinimum(0.01)
         self.threshold_spin.setMaximum(100)
         self.threshold_spin.setValue(5)
         self.picture_import_spin.append(self.threshold_spin)

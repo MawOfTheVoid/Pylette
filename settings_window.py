@@ -71,7 +71,7 @@ class Settings_window(QtWidgets.QDialog):
         self.quantize_spin = QtWidgets.QSpinBox(self)
         self.quantize_spin.setMinimum(1)
         self.quantize_spin.setValue(10)
-        self.quantize_spin.setMaximum(1000000)
+        self.quantize_spin.setMaximum(256)
         self.picture_import_spin.append(self.quantize_spin)
         self.horizontalLayout_5.addWidget(self.quantize_spin)
 

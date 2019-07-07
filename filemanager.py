@@ -15,8 +15,8 @@ class Filemanager():
 
     def add_file_from_filedialog(self):
         file_name = QFileDialog.getOpenFileName()
+        # no file opened
         if file_name[0] == "":
-            print("No file opened")
             return
         return self.create_new_object(file_name[0])
 

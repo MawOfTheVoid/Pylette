@@ -11,7 +11,7 @@ class Picture_object():
         self.filename = pic_functions.get_filename_from_path(filepath)
         self.size = pic_functions.get_pixelcount(filepath)
         self.unmutable_list = pic_functions.get_list_from_file(filepath)
-        self.mutable_list = self.reset_list()
+        self.reset_list()
 
     def reset_list(self):
         # it takes the unmutable_list and calls
@@ -33,10 +33,8 @@ class Picture_object():
         elif settings["quantize"][0] is True:
             maximal_colors = settings["quantize"][1]
             colors = pic_functions.get_quantize(self.filepath, maximal_colors)
-        # hotfix here
+
         self.mutable_list = colors
-        # hotfix end
-        return colors
 
     def get_colors(self):
         # a getter for other classes

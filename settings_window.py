@@ -65,6 +65,8 @@ class Settings_window(QtWidgets.QDialog):
 
         self.quantize_radio = QtWidgets.QRadioButton(self)
         self.quantize_radio.setText("Quantize")
+        tooltip = 'Uses "quantization".\nNo Idea how exactly it works.'
+        self.quantize_radio.setToolTip(tooltip)
         self.picture_import_radios.addButton(self.quantize_radio)
         self.horizontalLayout_5.addWidget(self.quantize_radio)
 
@@ -72,6 +74,8 @@ class Settings_window(QtWidgets.QDialog):
         self.quantize_spin.setMinimum(1)
         self.quantize_spin.setValue(10)
         self.quantize_spin.setMaximum(256)
+        tooltip = "Caps out at 256 because it would crash if higher."
+        self.quantize_spin.setToolTip(tooltip)
         self.picture_import_spin.append(self.quantize_spin)
         self.horizontalLayout_5.addWidget(self.quantize_spin)
 
@@ -81,7 +85,10 @@ class Settings_window(QtWidgets.QDialog):
 
         self.maxcolors_radio = QtWidgets.QRadioButton(self)
         self.maxcolors_radio.setText("Maxcolors")
+        tooltip = "Takes the n most used colors."
+        self.maxcolors_radio.setToolTip(tooltip)
         self.picture_import_radios.addButton(self.maxcolors_radio)
+
         self.horizontalLayout_3.addWidget(self.maxcolors_radio)
 
         self.maxcolors_spin = QtWidgets.QSpinBox(self)
@@ -98,6 +105,10 @@ class Settings_window(QtWidgets.QDialog):
 
         self.threshold_radio = QtWidgets.QRadioButton(self)
         self.threshold_radio.setText("Threshold")
+        tooltip = (
+            "Everything which is above or equal "
+            + "to the percent threshold is added")
+        self.threshold_radio.setToolTip(tooltip)
         self.picture_import_radios.addButton(self.threshold_radio)
         self.horizontalLayout_4.addWidget(self.threshold_radio)
 
@@ -106,6 +117,8 @@ class Settings_window(QtWidgets.QDialog):
         self.threshold_spin.setMinimum(0.01)
         self.threshold_spin.setMaximum(100)
         self.threshold_spin.setValue(5)
+        tooltip = "1,00 equals 1%."
+        self.threshold_spin.setToolTip(tooltip)
         self.picture_import_spin.append(self.threshold_spin)
         self.horizontalLayout_4.addWidget(self.threshold_spin)
 
@@ -140,6 +153,8 @@ class Settings_window(QtWidgets.QDialog):
 
         self.scaling_radio = QtWidgets.QRadioButton(self)
         self.scaling_radio.setText("Scaling")
+        tooltip = "Scales with nearest neighbour."
+        self.scaling_radio.setToolTip(tooltip)
         self.export_scaling_group.addButton(self.scaling_radio)
         self.horizontalLayout_9.addWidget(self.scaling_radio)
 
@@ -156,6 +171,8 @@ class Settings_window(QtWidgets.QDialog):
 
         self.resizing_radio = QtWidgets.QRadioButton(self)
         self.resizing_radio.setText("Resizing")
+        tooltip = "Resizes to selected size."
+        self.resizing_radio.setToolTip(tooltip)
         self.export_scaling_group.addButton(self.resizing_radio)
         self.horizontalLayout_10.addWidget(self.resizing_radio)
 
@@ -164,6 +181,8 @@ class Settings_window(QtWidgets.QDialog):
         self.width_spin.setMinimum(10)
         self.width_spin.setMaximum(1000000)
         self.width_spin.setValue(800)
+        tooltip = "Width in pixels."
+        self.width_spin.setToolTip(tooltip)
         self.horizontalLayout_10.addWidget(self.width_spin)
 
         self.X_lbl = QtWidgets.QLabel(self)
@@ -182,6 +201,8 @@ class Settings_window(QtWidgets.QDialog):
         self.height_spin.setMinimum(10)
         self.height_spin.setMaximum(1000000)
         self.height_spin.setValue(600)
+        tooltip = "Height in pixels."
+        self.height_spin.setToolTip(tooltip)
         self.horizontalLayout_10.addWidget(self.height_spin)
 
         self.verticalLayout.addLayout(self.horizontalLayout_10)

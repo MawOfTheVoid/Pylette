@@ -357,10 +357,6 @@ class Ui_MainWindow(object):
             self.color_button_19
         ]
 
-#    def color_button_list_operations(self):
-#        for btn in self.color_btn_list:
-#            btn.clicked.connect(btn.pressed)
-
     def bind_buttons(self):
         self.filedialog_btn.clicked.connect(self.filedialog_buttonpress)
         self.export_btn.clicked.connect(self.export_press)
@@ -399,8 +395,6 @@ class Ui_MainWindow(object):
 
         self.reset_all_color_btn()
         self.update_colorbuttons(object_index, combo_index)
-
-        # the rest comes later when the color buttons work
 
     def update_first_combo(self):
         if (
@@ -479,9 +473,3 @@ class Ui_MainWindow(object):
             lower = higher
             if higher == 20:
                 break
-
-    def get_all_length(self):
-        length = 0
-        for object in self.filemanager.color_objects:
-            length += len(object.mutable_list)
-        return length

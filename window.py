@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
         self.filedialog_btn = QtWidgets.QPushButton(self.centralwidget)
         self.filedialog_btn.setMinimumSize(QtCore.QSize(80, 0))
         self.filedialog_btn.setMaximumSize(QtCore.QSize(100, 16777215))
-        self.filedialog_btn.setText("Filedialog")
+        self.filedialog_btn.setText("Open file")
         self.horizontalLayout.addWidget(self.filedialog_btn)
 
         self.colordialog_btn = QtWidgets.QPushButton(self.centralwidget)

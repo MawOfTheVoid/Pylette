@@ -30,7 +30,7 @@ def remove_alpha(colors):
 
 def save_picture(path, settings, colors):
     colors.sort(key=lambda qcolor: qcolor.getHsv())
-    palette = Image.new("RGBA", size=(len(colors), 1))
+    palette = Image.new("RGB", size=(len(colors), 1))
     if settings["alpha"] is False:
         remove_alpha(colors)
 

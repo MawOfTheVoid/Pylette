@@ -47,7 +47,7 @@ No program is perfect and the Pylette is a program so it would be better when yo
 * Right-click on a color to delete it.
 * If you want to add a color from your screen you must open a colordialog and there you will find an option to pick a color from your screen.
 * That the "Custom Color" in the combobox never goes away is neither a bug nor a feature... it's less work.
-* The Pylette can only work with rgb and rgb-compatible colorspaces
+* The Pylette can only work with rgb and rgb-compatible colorspaces.
 
 If you find more quirks or even bugs you are very much encouraged to make an issue on Github.
 

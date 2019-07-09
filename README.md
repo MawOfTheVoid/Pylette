@@ -33,20 +33,21 @@ First have to create an executable to know.
 I don't have a Mac; if there is enough demand I may look into options to make an executable.
 
 ## Should I use the single file executable?
-If you dont care about the folder structure around the executable you shouldn't take the sigle executable because the startup times are higher.
+If you dont care about the folder structure around the executable you shouldn't take the single executable because the startup times are higher.
 
 ## Quirks
 No program is perfect and the Pylette is a program so it would be better when you know about it quirks.
 
-* Resetting a file not only resets the whole palette and the changed colors in the palette but does so according to the current settings as if you were deleting and adding the file
-* When you add a file only the current settings are important so if you want to add multiple pictures with different settings you can do that
-* When you import a picture with alpha channel... your palette won't have said alpha channel
-* When you import a gif only the first frame counts
-* If you have problems with a weird settings window; try to resize it
-* You can change a color in the palette by clicking on the color which opens a colordialog
-* Right-click on a color to delete it
-* If you want to add a color from your screen you must open a colordialog and there you will find an option to pick a color from your screen
+* Resetting a file not only resets the whole palette and the changed colors in the palette but does so according to the current settings as if you were deleting and adding the file.
+* When you add a file, only the current settings are important. So if you want to add multiple pictures with different settings you can do that.
+* When you import a picture with alpha channel... your palette won't have said alpha channel.
+* When you import a gif only the first frame counts.
+* If you have problems with a weird settings window; try to resize it.
+* You can change a color in the palette by clicking on the color which opens a colordialog.
+* Right-click on a color to delete it.
+* If you want to add a color from your screen you must open a colordialog and there you will find an option to pick a color from your screen.
 * That the "Custom Color" in the combobox never goes away is neither a bug nor a feature... it's less work.
+* The Pylette can only work with rgb and rgb-compatible colorspaces
 
 If you find more quirks or even bugs you are very much encouraged to make an issue on Github.
 

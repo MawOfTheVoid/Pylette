@@ -9,6 +9,7 @@
 from PyQt5 import QtCore, QtWidgets
 import export_assistant as export
 from settings_window import Settings_window
+from PyQt5.QtGui import QIcon
 from colorbutton import Color_button
 import filemanager
 import config
@@ -35,6 +36,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle("Pylette")
         MainWindow.resize(785, 275)
         MainWindow.setMinimumSize(QtCore.QSize(375, 0))
+        MainWindow.setWindowIcon(QIcon("pylette_256.png"))
 
     def upper_layout(self, MainWindow):
         self.centralwidget = QtWidgets.QWidget(MainWindow)

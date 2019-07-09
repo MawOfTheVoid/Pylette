@@ -38,6 +38,12 @@ class Filemanager():
                     \n\tCapisce?""", QMessageBox.Ok)
                 return False
         # Add checks for special text files
+        else:
+            string = "You tried to open an unsupported fileformat!\n"
+            string += "Try better next time..."
+            QMessageBox.warning(
+                None, "Unsupported filetype",
+                string, QMessageBox.Ok)
 
     def get_filenames(self):
         names = []

@@ -27,7 +27,9 @@ Of course you can change some parameters in the settings so feel free to try the
 Just double-click the pylette.exe.
 
 ### Linux
-Find the pylette file and double-click it.
+Find the pylette file and double-click it.  
+If this doesnt work you have to give the pylette file executable permission.  
+You can do this with `chmod +x /path/to/pylette`.
 ### MacOs
 I don't have a Mac; if there is enough demand I may look into options to make an executable.
 

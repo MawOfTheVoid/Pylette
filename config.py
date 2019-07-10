@@ -8,9 +8,12 @@ class ConfigManager():
     # Two main resposiblilities
     # giving other classes an interface
     # translating the settings-popup to a dictionary to dump into json
+    # the settings are only accessed through the configmanager to keep
+    # everything always up to date without endlessly readig the file
 
     def __init__(self):
         self.adress = "config.json"
+        # should never be changed
         self.default_json = {
             'picture_import': {
                 'reduce_colors': True,

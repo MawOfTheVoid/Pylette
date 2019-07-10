@@ -70,6 +70,7 @@ class Filemanager():
         return colors
 
     def is_picture(self, filepath):
+        # checks if the extension is one of the ones that pillow supports
         if (
                 filepath[-4:] == ".png" or filepath[-4:] == ".gif" or
                 filepath[-4:] == ".bmp" or filepath[-4:] == ".eps" or
@@ -87,4 +88,5 @@ class Filemanager():
             return False
 
     def open_color_dialog(self):
+        # just a forwarder
         self.colordialog.get_custom_color()

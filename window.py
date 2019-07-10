@@ -28,11 +28,13 @@ class Ui_MainWindow(object):
         self.bind_buttons()
 
     def init_rest(self, MainWindow):
+        # some initialisation whichisnt in the __init__
         self.conf = config.ConfigManager()
         self.filemanager = filemanager.Filemanager(self.conf)
         self.settings_window = Settings_window(MainWindow, self.conf)
 
     def create_window(self, MainWindow):
+        # creats the window
         MainWindow.setWindowTitle("Pylette")
         MainWindow.resize(785, 275)
         MainWindow.setMinimumSize(QtCore.QSize(375, 0))
@@ -336,6 +338,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def color_button_list(self):
+        # to allow easier access to all the color buttons
         self.color_btn_list = [
             self.color_button_0,
             self.color_button_1,
@@ -369,12 +372,16 @@ class Ui_MainWindow(object):
         self.reset_btn.clicked.connect(self.reset_press)
 
     def reset_press(self):
+        # when reset is pressed
+        # get the current selected file und resets it
         combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
         self.filemanager.color_objects[object_index].reset_list()
         self.update_gui()
 
     def delete_press(self):
+        # when delete is pressed
+        # deletes the item from combobox and objectlist and updates the gui
         combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
         del self.filemanager.color_objects[object_index]
@@ -382,9 +389,13 @@ class Ui_MainWindow(object):
         self.update_gui()
 
     def update_gui(self):
+        # gets almost always called
+        # responsible for the colorbuttons
         combo_index = self.color_combo.currentIndex()
         object_index = combo_index - 1
+        # to display either "all colors" or "no colors"
         self.update_first_combo()
+        # disables the "normal" butons according to index
         if combo_index == 0:
             self.delete_btn.setDisabled(True)
             self.reset_btn.setDisabled(True)
@@ -395,10 +406,13 @@ class Ui_MainWindow(object):
             self.delete_btn.setDisabled(False)
             self.reset_btn.setDisabled(False)
 
+        # to make sure that every button that has no color is disabled
         self.reset_all_color_btn()
+        # updates the the color buttons according to the combobox-index
         self.update_colorbuttons(object_index, combo_index)
 
     def update_first_combo(self):
+        # to make the combobox display different things
         if (
             len(self.filemanager.color_objects) == 1
                 and not self.filemanager.color_objects[0].mutable_list):
@@ -407,14 +421,18 @@ class Ui_MainWindow(object):
             self.color_combo.setItemText(0, "All Colors")
 
     def colordialog_press(self):
+        # tells the filemanager to add a new file and updates the gui afterward
         self.filemanager.open_color_dialog()
         self.update_gui()
 
     def settings_press(self):
+        # loads the current settings into the object and opens the window
         self.settings_window.load_settings()
         self.settings_window.exec_()
 
     def filedialog_buttonpress(self):
+        # gets a file and if everything was successful it gets added to
+        # to the combobox
         succesful = self.filemanager.add_file_from_filedialog()
         if succesful:
             filename = self.filemanager.get_filenames()[-1]
@@ -422,6 +440,7 @@ class Ui_MainWindow(object):
         self.update_gui()
 
     def export_press(self):
+        # export the palette
         colors = self.filemanager.get_all_colors()
         if not colors:
             QtWidgets.QMessageBox.critical(
@@ -439,12 +458,14 @@ class Ui_MainWindow(object):
             pass
 
     def update_colorbuttons(self, object_index, combo_index):
+        # depending on the index all palettes or just one will be shown
         if combo_index == 0:
             self.update_colorbuttons_all_palettes()
         else:
             self.update_colorbuttons_one_palette(object_index)
 
     def reset_all_color_btn(self):
+        # disables all buttons and resets their color
         for btn in self.color_btn_list:
             btn.reset()
 
@@ -461,6 +482,8 @@ class Ui_MainWindow(object):
                 self.color_btn_list[index].update(colors, index)
 
     def update_colorbuttons_all_palettes(self):
+        # loops through every object and gives the color to the colorbutton
+        # until 20 is reached
         lower = 0
         higher = 0
         for object in self.filemanager.color_objects:

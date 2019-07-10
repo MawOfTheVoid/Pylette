@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtWidgets
 
 
 class Settings_window(QtWidgets.QDialog):
+    """Creates a settingswindow and communicates with ConfigManager"""
 
     def __init__(self, parent, config):
 
@@ -23,6 +24,7 @@ class Settings_window(QtWidgets.QDialog):
         self.conf = config
 
     def mark_up(self):
+        # creates the layout of the window
         self.resize(350, 400)
         self.setWindowTitle("Settings")
 
@@ -158,7 +160,6 @@ class Settings_window(QtWidgets.QDialog):
         self.export_scaling_group.addButton(self.scaling_radio)
         self.horizontalLayout_9.addWidget(self.scaling_radio)
 
-        # relates to Scaling
         self.scaling_spin = QtWidgets.QSpinBox(self)
         self.scaling_spin.setMinimum(1)
         self.scaling_spin.setMaximum(1000000)
@@ -176,7 +177,6 @@ class Settings_window(QtWidgets.QDialog):
         self.export_scaling_group.addButton(self.resizing_radio)
         self.horizontalLayout_10.addWidget(self.resizing_radio)
 
-        # relates to width (left)
         self.width_spin = QtWidgets.QSpinBox(self)
         self.width_spin.setMinimum(10)
         self.width_spin.setMaximum(1000000)
@@ -242,9 +242,12 @@ class Settings_window(QtWidgets.QDialog):
         self.dict_to_window(self.conf.default_json)
 
     def cancel_btn_clicked(self, event):
+        # just closes the window
         self.done(0)
 
     def apply_btn_clicked(self, event):
+        # gets a dict from the window and gives it to the settingsmanager
+        # to update it and closes the window afterwards
         settings = self.window_to_dict()
         self.conf.update(settings)
         self.done(0)
@@ -254,6 +257,7 @@ class Settings_window(QtWidgets.QDialog):
         self.dict_to_window(settings)
 
     def dict_to_window(self, settings):
+        # takes the dict and sets the widgets accordingly
         if settings["picture_import"]["reduce_colors"] is True:
             reduce_activate = 2
         elif settings["picture_import"]["reduce_colors"] is False:
@@ -289,6 +293,9 @@ class Settings_window(QtWidgets.QDialog):
         self.height_spin.setValue(settings["picture_export"]["resize"][2])
 
     def window_to_dict(self):
+        # takes the values from the window and creates overwrites a dict
+        # it changes an already existing dict instead of creating a new one
+        # to leave dead settings untouched instead of removing them
         settings = self.conf.get_all_settings()
         activate = self.reduce_checkbox.checkState()
         if activate == 0:

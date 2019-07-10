@@ -2,7 +2,8 @@ from PyQt5.QtWidgets import QColorDialog
 
 
 class Colordialog__object():
-    """Gives an interface to access the colors of a picture."""
+    """The class that is responsible for storing and
+        creation of the custom colors"""
 
     def __init__(self):
         self.is_changed = False

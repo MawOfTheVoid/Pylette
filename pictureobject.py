@@ -34,6 +34,8 @@ class Picture_object():
             maximal_colors = settings["quantize"][1]
             colors = pic_functions.get_quantize(self.filepath, maximal_colors)
 
+        # add more checks if you want to add new options
+
         self.mutable_list = colors
 
     def get_colors(self):

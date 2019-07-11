@@ -27,13 +27,11 @@ Of course you can change some parameters in the settings so feel free to try the
 Just double-click the pylette.exe.
 
 ### Linux
-First have to create an executable to know.
-
+Find the pylette file and double-click it.  
+If this doesnt work you have to give the pylette file executable permission.  
+You can do this with `chmod +x /path/to/pylette`.
 ### MacOs
 I don't have a Mac; if there is enough demand I may look into options to make an executable.
-
-## Should I use the single file executable?
-If you dont care about the folder structure around the executable you shouldn't take the single executable because the startup times are higher.
 
 ## Quirks
 No program is perfect and the Pylette is a program so it would be better when you know about it quirks.
@@ -72,7 +70,11 @@ The last two are most likely to be added later because they were planned in from
 * Pyinstaller 3.5 but newer versions should work.  
 
 ## Building executables
-Todo
+To create an executable you need to have pyinstaller installed.
+1. cd to the directory
+2. Run the command `pyinstaller -w -i Example/pylette_256.ico main.py`.
+3. Rename the main(.exe) to pylette (optional).
+4. Copy the config.json and pylette_256.png into the folder with the executable.
 
 ## Credits
 * Pillow https://github.com/python-pillow/Pillow  

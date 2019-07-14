@@ -93,7 +93,7 @@ The last two are most likely to be added later because they were planned in from
 
 ### Requirements
 * Used Python 3.7.2 but should be perfectly compatible down to 3.6. If you want to go lower, you need to replace f-strings with another syntax formatting.  
-* Built with PyQt5 5.12.1; PyQt5 5.13.0 and Pyinstaller dont work well with each other.  
+* Built with PyQt5 5.12.1; PyQt5 5.13.0 and Pyinstaller don't work well with each other.  
 * Pillow 6.1.0 but newer version should work.  
 * Pyinstaller 3.5 but newer versions should work.  
 

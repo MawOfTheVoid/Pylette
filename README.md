@@ -97,7 +97,7 @@ The last two are most likely to be added later because they were planned in from
 * Pillow 6.1.0 but newer version should work.  
 * Pyinstaller 3.5 but newer versions should work.  
 
-## Building executables
+### Building executables
 To create an executable you need to have pyinstaller installed.
 1. cd to the directory
 2. Run the command `pyinstaller -w -i Example/pylette_256.ico main.py`.

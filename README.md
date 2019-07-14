@@ -11,7 +11,7 @@ We can open this masterpiece in the Pylette.
 
 <img src="Example/open_file.png" width=700>
 
-After the picture is opened, the colors are shown in the Pylette where you can edit, add or delete colors. Afterwards you can export your palette.
+After the picture is opened, the colors are shown in the Pylette where you can edit, add or delete colors. Afterwards, you can export your palette.
 
 <img src="Example/export.png" width=700>
 
@@ -24,11 +24,11 @@ Now you can import the palette in your image processing program.
 <img src="Example/import_aseprite.png" width=700>
 
 ## Why use Pylette over built-in palette functionality?
-Many image editing programs allow you to import palettes from images but since they don't focus on it they have a few weaknesses. A badly scaled pixelart image has way more colors than meets the eye. The original pixelart has only these 7 colors:
+Many image editing programs allow you to import palettes from images but since they don't focus on it they have a few weaknesses. A badly scaled pixel art image has way more colors than meets the eye. The original pixel art has only these 7 colors:
 
 <img src="Example/bold_all.png" width=250>
 
-But when import a badly resized picture gets imported into pixeleditor, this happens:
+But when import a badly resized picture gets imported into pixel editor, this happens:
 
 <img src="Example/bold_n_aseprite.png" width=700>
 
@@ -36,7 +36,7 @@ This many colors are suboptimal and you would have to remove most of them and th
 
 <img src="Example/bold_bad_palette.png" width=250>
 
-But this isnt exactly the original palette and you want to edit it. First thing you could try is editing the import settings and resetting the file.
+But this isn't exactly the original palette and you want to edit it. First thing you could try is editing the import settings and resetting the file.
 
 <img src="Example/settings_window.png" height=400>
 
@@ -52,10 +52,10 @@ Here you also have the ability to pick a screen color which can make adding a ve
 Just double-click the pylette.exe.
 
 ### Linux
-Find the pylette file and double-click it.  
-If this doesnt work you have to give the pylette file executable permission.  
+Find the Pylette file and double-click it.  
+If this doesn't work you have to give the pylette file executable permission.  
 You can do this with `chmod +x /path/to/pylette`.
-I would also recommend to create a .desktop file so you can open it with an application icon and the ability to start it outside the directory of the executable.
+I would also recommend you to create a .desktop file so you can open it with an application icon and the ability to start it outside the directory of the executable.
 ### MacOs
 I don't have a Mac; if there is enough demand I may look into options to make an executable.
 
@@ -72,7 +72,7 @@ No program is perfect and the Pylette is a program so it would be better when yo
 * If you want to add a color from your screen you must open a colordialog and there you will find an option to pick a color from your screen.
 * That the "Custom Color" in the combobox never goes away is neither a bug nor a feature... it's less work.
 * The Pylette can only work with rgb and rgb-compatible colorspaces.
-* If your palette has a lot of colors and you can open the exported palette then try setting the scaling setting to 1 because your picture may otherwise to big to open.
+* If your palette has a lot of colors and you can open the exported palette then try setting the scaling setting to 1 because otherwise you picture may be to big to open.
 
 If you find more quirks or even bugs you are very much encouraged to make an issue on Github.
 
@@ -85,9 +85,10 @@ Probably none because I want(ed) to move on but in case I want to work on it lat
 * Adding proper gif support (so that multiple frames are supported if selected in the settings)
 * Adding proper alpha support (which probably won't happen because it would need bigger rewrites in multiple areas)
 * Adding more files that can be imported like .css or .gpl
-* Adding support for more supported exportable filestypes like .html or .svg files 
+* Adding support for more supported exportable filestype like .html or .svg files 
 
 The last two are most likely to be added later because they were planned in from the beginning and only later cut out. They are also easy to integrate into the application because of this. If you have other ideas, feel free to share them with me or implement them yourself. 
+
 ## For Developers
 
 ### Requirements
@@ -111,6 +112,6 @@ To create an executable you need to have pyinstaller installed.
 * Pyinstaller https://www.pyinstaller.org/
 
 ## Shown in the pictures
-* Manjaro Kde https://manjaro.org/
+* Manjaro KDE https://manjaro.org/
 * Aseprite https://www.aseprite.org/
 * Pylette https://github.com/MawOfTheVoid/Pylette

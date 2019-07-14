@@ -19,7 +19,32 @@ The resulting palette looks like this:
 
 <img src="Example/bold_palette.png" width=250>
 
-Of course you can change some parameters in the settings so feel free to try them out.
+Now you can import the palette in your image processing program.
+
+<img src="Example/import_aseprite.png" width=700>
+
+## Why use Pylette over built-in palette functionality?
+Many image editing programs allow you to import palettes from images but since they don't focus on it they have a few weaknesses. A badly scaled pixelart image has way more colors than meets the eye. The original pixelart has only these 7 colors:
+
+<img src="Example/bold_all.png" width=250>
+
+But when import a badly resized picture gets imported into pixeleditor, this happens:
+
+<img src="Example/bold_n_aseprite.png" width=700>
+
+This many colors are suboptimal and you would have to remove most of them and this just takes time. You can simply open the image in Pylette and directly get a good palette.
+
+<img src="Example/bold_bad_palette.png" width=250>
+
+But this isnt exactly the original palette and you want to edit it. First thing you could try is editing the import settings and resetting the file.
+
+<img src="Example/settings_window.png" height=400>
+
+You can also delete, add or edit existing colors.
+
+<img src="Example/colordialog.png" width=500>
+
+Here you also have the ability to pick a screen color which can make adding a very specific color way easier.
 
 ## Installation
 
@@ -30,6 +55,7 @@ Just double-click the pylette.exe.
 Find the pylette file and double-click it.  
 If this doesnt work you have to give the pylette file executable permission.  
 You can do this with `chmod +x /path/to/pylette`.
+I would also recommend to create a .desktop file so you can open it with an application icon and the ability to start it outside the directory of the executable.
 ### MacOs
 I don't have a Mac; if there is enough demand I may look into options to make an executable.
 
@@ -46,6 +72,7 @@ No program is perfect and the Pylette is a program so it would be better when yo
 * If you want to add a color from your screen you must open a colordialog and there you will find an option to pick a color from your screen.
 * That the "Custom Color" in the combobox never goes away is neither a bug nor a feature... it's less work.
 * The Pylette can only work with rgb and rgb-compatible colorspaces.
+* If your palette has a lot of colors and you can open the exported palette then try setting the scaling setting to 1 because your picture may otherwise to big to open.
 
 If you find more quirks or even bugs you are very much encouraged to make an issue on Github.
 
@@ -73,7 +100,7 @@ The last two are most likely to be added later because they were planned in from
 To create an executable you need to have pyinstaller installed.
 1. cd to the directory
 2. Run the command `pyinstaller -w -i Example/pylette_256.ico main.py`.
-3. Rename the main(.exe) to pylette (optional).
+3. Rename the main(.exe) to pylette(.exe) (optional).
 4. Copy the config.json and pylette_256.png into the folder with the executable.
 
 ## Credits
@@ -81,4 +108,9 @@ To create an executable you need to have pyinstaller installed.
 * PyQt5 https://www.riverbankcomputing.com/news  
 * Qt (Designer) https://www.qt.io/  
 * Python https://www.python.org/  
-* Pyinstaller https://www.pyinstaller.org/  
+* Pyinstaller https://www.pyinstaller.org/
+
+## Shown in the pictures
+* Manjaro Kde https://manjaro.org/
+* Aseprite https://www.aseprite.org/
+* Pylette https://github.com/MawOfTheVoid/Pylette

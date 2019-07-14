@@ -28,7 +28,7 @@ Many image editing programs allow you to import palettes from images but since t
 
 <img src="Example/bold_all.png" width=250>
 
-But when import a badly resized picture gets imported into pixel editor, this happens:
+But when importing a badly resized picture gets imported into pixel editor, this happens:
 
 <img src="Example/bold_n_aseprite.png" width=700>
 

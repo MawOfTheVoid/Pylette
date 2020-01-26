@@ -74,20 +74,9 @@ No program is perfect and the Pylette is a program so it would be better when yo
 * The Pylette can only work with rgb and rgb-compatible colorspaces.
 * If your palette has a lot of colors and you can open the exported palette then try setting the scaling setting to 1 because otherwise you picture may be to big to open.
 
-If you find more quirks or even bugs you are very much encouraged to make an issue on Github.
-
 ## FAQ
 No Users...  
 No Questions!
-
-## Future Features
-Probably none because I want(ed) to move on but in case I want to work on it later or you want to contribute there still are things that can to be done.
-* Adding proper gif support (so that multiple frames are supported if selected in the settings)
-* Adding proper alpha support (which probably won't happen because it would need bigger rewrites in multiple areas)
-* Adding more files that can be imported like .css or .gpl
-* Adding support for more supported exportable filestype like .html or .svg files 
-
-The last two are most likely to be added later because they were planned in from the beginning and only later cut out. They are also easy to integrate into the application because of this. If you have other ideas, feel free to share them with me or implement them yourself. 
 
 ## For Developers
 
